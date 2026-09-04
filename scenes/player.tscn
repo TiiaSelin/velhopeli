@@ -6,6 +6,23 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_78565"]
 radius = 30.066593
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ge4c"]
+radius = 31.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhqgy"]
+bg_color = Color(0.30110535, 1.6544945e-07, 7.219613e-08, 0.44705883)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2els"]
+bg_color = Color(0.8217507, 0.0012314734, 0.00067488936, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [node name="Player" type="CharacterBody2D" unique_id=1059790719]
 script = ExtResource("1_g2els")
 
@@ -17,3 +34,24 @@ texture = ExtResource("1_3vyb7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=741503286]
 position = Vector2(-1, 21)
 shape = SubResource("CircleShape2D_78565")
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1618026569]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=413039648]
+position = Vector2(-1, 21)
+shape = SubResource("CircleShape2D_0ge4c")
+debug_color = Color(0.9750044, 0, 0.42610657, 0.41960785)
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=325537463]
+unique_name_in_owner = true
+offset_left = -117.0
+offset_top = -101.0
+offset_right = 121.0
+offset_bottom = -74.0
+theme_override_styles/background = SubResource("StyleBoxFlat_qhqgy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_g2els")
+value = 100.0
+show_percentage = false
