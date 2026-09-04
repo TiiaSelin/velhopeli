@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://4cm5gtio8g8e"]
 
 [ext_resource type="Texture2D" uid="uid://dra2xi6se5sfb" path="res://assets/sienihahmo.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://c6npchk4r1gto" path="res://scripts/player.gd" id="1_g2els"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_78565"]
 radius = 30.066593
 
 [node name="Player" type="CharacterBody2D" unique_id=1059790719]
+script = ExtResource("1_g2els")
 
 [node name="Sienihahmo" type="Sprite2D" parent="." unique_id=915847131]
 position = Vector2(0, -1)
