@@ -7,6 +7,5 @@
 
 [node name="Player" parent="." unique_id=1059790719 instance=ExtResource("1_uwrxv")]
 position = Vector2(618, 292)
-collision_layer = 2
 
 [node name="Enemy" parent="." unique_id=1596892051 instance=ExtResource("2_yqjtg")]
