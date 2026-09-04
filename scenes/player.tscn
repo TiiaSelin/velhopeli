@@ -1,11 +1,27 @@
 [gd_scene format=3 uid="uid://4cm5gtio8g8e"]
 
 [ext_resource type="Texture2D" uid="uid://dra2xi6se5sfb" path="res://assets/sienihahmo.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://c6npchk4r1gto" path="res://scripts/player.gd" id="1_g2els"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_78565"]
 radius = 30.066593
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhqgy"]
+bg_color = Color(0.30110535, 1.6544945e-07, 7.219613e-08, 0.44705883)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2els"]
+bg_color = Color(0.8217507, 0.0012314734, 0.00067488936, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [node name="Player" type="CharacterBody2D" unique_id=1059790719]
+script = ExtResource("1_g2els")
 
 [node name="Sienihahmo" type="Sprite2D" parent="." unique_id=915847131]
 position = Vector2(0, -1)
@@ -15,3 +31,13 @@ texture = ExtResource("1_3vyb7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=741503286]
 position = Vector2(-1, 21)
 shape = SubResource("CircleShape2D_78565")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=325537463]
+unique_name_in_owner = true
+offset_left = -117.0
+offset_top = -101.0
+offset_right = 121.0
+offset_bottom = -74.0
+theme_override_styles/background = SubResource("StyleBoxFlat_qhqgy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_g2els")
+show_percentage = false
