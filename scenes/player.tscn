@@ -23,9 +23,9 @@ corner_radius_bottom_left = 5
 [node name="Player" type="CharacterBody2D" unique_id=1059790719]
 script = ExtResource("1_g2els")
 
-[node name="Sienihahmo" type="Sprite2D" parent="." unique_id=915847131]
-position = Vector2(0, -1)
-scale = Vector2(0.08809137, 0.08809135)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1651191877]
+position = Vector2(-2.1180491, 7.749998)
+scale = Vector2(0.07227175, 0.07218598)
 texture = ExtResource("1_3vyb7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=741503286]
