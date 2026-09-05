@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cpm4n85d0yt3y"]
+
+[ext_resource type="Script" uid="uid://snma4wk2du8g" path="res://scripts/boundaries.gd" id="1_2jmew"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6shov"]
+size = Vector2(1172, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ge4c"]
+size = Vector2(20, 668)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvuq0"]
+size = Vector2(1172, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vgvx"]
+size = Vector2(20, 668)
+
+[node name="Boundaries" type="Node2D" unique_id=180397686]
+script = ExtResource("1_2jmew")
+
+[node name="Top" type="StaticBody2D" parent="." unique_id=1844408906]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top" unique_id=1144649843]
+position = Vector2(566, -10)
+shape = SubResource("RectangleShape2D_6shov")
+
+[node name="Right" type="StaticBody2D" parent="." unique_id=1108126447]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=2019133797]
+position = Vector2(1162, 314)
+shape = SubResource("RectangleShape2D_0ge4c")
+
+[node name="Bottom" type="StaticBody2D" parent="." unique_id=753045332]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom" unique_id=71549544]
+position = Vector2(586, 658)
+shape = SubResource("RectangleShape2D_uvuq0")
+
+[node name="Left" type="StaticBody2D" parent="." unique_id=1206583180]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=1228922995]
+position = Vector2(-10, 334)
+shape = SubResource("RectangleShape2D_3vgvx")

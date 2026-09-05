@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://4cm5gtio8g8e" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://ckkmqtccw8gne" path="res://scenes/enemy.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://cpm4n85d0yt3y" path="res://scenes/boundaries.tscn" id="3_lnu2h"]
 
 [node name="Game" type="Node2D" unique_id=1486379925]
 
@@ -9,3 +10,5 @@
 position = Vector2(618, 292)
 
 [node name="Enemy" parent="." unique_id=1596892051 instance=ExtResource("2_yqjtg")]
+
+[node name="Boundaries" parent="." unique_id=180397686 instance=ExtResource("3_lnu2h")]
