@@ -10,5 +10,6 @@
 position = Vector2(618, 292)
 
 [node name="Enemy" parent="." unique_id=1596892051 instance=ExtResource("2_yqjtg")]
+position = Vector2(83, 11)
 
 [node name="Boundaries" parent="." unique_id=180397686 instance=ExtResource("3_lnu2h")]
