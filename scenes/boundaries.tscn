@@ -21,26 +21,22 @@ script = ExtResource("1_2jmew")
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top" unique_id=1144649843]
-position = Vector2(566, -10)
 shape = SubResource("RectangleShape2D_6shov")
 
 [node name="Right" type="StaticBody2D" parent="." unique_id=1108126447]
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=2019133797]
-position = Vector2(1162, 314)
 shape = SubResource("RectangleShape2D_0ge4c")
 
 [node name="Bottom" type="StaticBody2D" parent="." unique_id=753045332]
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom" unique_id=71549544]
-position = Vector2(586, 658)
 shape = SubResource("RectangleShape2D_uvuq0")
 
 [node name="Left" type="StaticBody2D" parent="." unique_id=1206583180]
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=1228922995]
-position = Vector2(-10, 334)
 shape = SubResource("RectangleShape2D_3vgvx")

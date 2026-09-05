@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var arena_size := Vector2(50, 50)
+@export var arena_size := Vector2(2000, 2000)
 @export var wall_thickness := 32.0
 
 @onready var top_wall = %Top
