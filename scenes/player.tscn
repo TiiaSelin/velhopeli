@@ -26,6 +26,8 @@ corner_radius_bottom_left = 5
 [node name="Player" type="CharacterBody2D" unique_id=1059790719]
 script = ExtResource("1_g2els")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=88289229]
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1651191877]
 position = Vector2(-2.1180491, 7.749998)
 scale = Vector2(0.07227175, 0.07218598)
