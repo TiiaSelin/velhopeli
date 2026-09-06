@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var health = 100.0
 var mana = 100.0
+var max_mana = 100.0
 
 # Pelaajahahmon liike
 func _physics_process(_delta: float) -> void:
@@ -36,5 +37,5 @@ func cast_default():
 
 # Mana recharge.
 func _on_mp_recharge_timeout() -> void:
-	mana += 1
+	mana = clamp(mana + 1.0, 0.0, max_mana)
 	%ManaBar.value = mana
