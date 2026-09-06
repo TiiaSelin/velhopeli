@@ -30,6 +30,11 @@ func _input(event: InputEvent) -> void:
 # Spell types.
 func cast_default():
 	if mana < 10:
-		pass
+		return
 	mana -= 10
+	%ManaBar.value = mana
+
+# Mana recharge.
+func _on_mp_recharge_timeout() -> void:
+	mana += 1
 	%ManaBar.value = mana

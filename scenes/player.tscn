@@ -82,3 +82,9 @@ theme_override_styles/background = SubResource("StyleBoxFlat_dqkch")
 theme_override_styles/fill = SubResource("StyleBoxFlat_6shov")
 value = 100.0
 show_percentage = false
+
+[node name="MPRecharge" type="Timer" parent="." unique_id=1654175971]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="MPRecharge" to="." method="_on_mp_recharge_timeout"]
