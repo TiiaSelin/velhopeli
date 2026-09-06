@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var health = 100.0
+var mana = 100.0
 
 # Pelaajahahmon liike
 func _physics_process(_delta: float) -> void:
@@ -19,3 +20,16 @@ func _physics_process(_delta: float) -> void:
 		if health <= 0.0:
 			print("Game over.")
 			get_tree().paused = true
+			
+# Player inputs.
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			cast_default()
+
+# Spell types.
+func cast_default():
+	if mana < 10:
+		pass
+	mana -= 10
+	%ManaBar.value = mana

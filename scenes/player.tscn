@@ -23,6 +23,20 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqkch"]
+bg_color = Color(0, 0.022328697, 0.40695515, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6shov"]
+bg_color = Color(4.813075e-06, 0, 0.9514641, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [node name="Player" type="CharacterBody2D" unique_id=1059790719]
 script = ExtResource("1_g2els")
 
@@ -50,10 +64,21 @@ debug_color = Color(0.9750044, 0, 0.42610657, 0.41960785)
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=325537463]
 unique_name_in_owner = true
 offset_left = -117.0
-offset_top = -101.0
+offset_top = -115.0
 offset_right = 121.0
-offset_bottom = -74.0
+offset_bottom = -88.0
 theme_override_styles/background = SubResource("StyleBoxFlat_qhqgy")
 theme_override_styles/fill = SubResource("StyleBoxFlat_g2els")
+value = 100.0
+show_percentage = false
+
+[node name="ManaBar" type="ProgressBar" parent="." unique_id=1317376688]
+unique_name_in_owner = true
+offset_left = -117.0
+offset_top = -78.0
+offset_right = 121.0
+offset_bottom = -51.0
+theme_override_styles/background = SubResource("StyleBoxFlat_dqkch")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6shov")
 value = 100.0
 show_percentage = false
