@@ -3,6 +3,7 @@ extends CharacterBody2D
 var health = 100.0
 var mana = 100.0
 var max_mana = 100.0
+const PROJECTILE = preload("res://scenes/projectile.tscn")
 
 # Pelaajahahmon liike
 func _physics_process(_delta: float) -> void:
@@ -10,6 +11,8 @@ func _physics_process(_delta: float) -> void:
 #Hahmon nopeus
 	velocity = direction * 650
 	move_and_slide()
+	
+	%ShootingPoint.global_rotation = global_position.angle_to_point(get_global_mouse_position())
 
 	# Player damage and game over.
 	const DAMAGE_RATE = 50.0
@@ -34,6 +37,17 @@ func cast_default():
 		return
 	mana -= 10
 	%ManaBar.value = mana
+	
+	var new_projectile = PROJECTILE.instantiate()
+
+	var target = get_global_mouse_position()
+	var angle = global_position.angle_to_point(target)
+
+	new_projectile.rotation = angle
+
+	get_parent().add_child(new_projectile)
+	new_projectile.global_position = %ShootingPoint.global_position
+	new_projectile.global_rotation = %ShootingPoint.global_rotation
 
 # Mana recharge.
 func _on_mp_recharge_timeout() -> void:
