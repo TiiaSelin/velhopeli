@@ -40,7 +40,7 @@ corner_radius_bottom_left = 5
 [node name="Player" type="CharacterBody2D" unique_id=1059790719]
 script = ExtResource("1_g2els")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=88289229]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=571803108]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1651191877]
 position = Vector2(-2.1180491, 7.749998)
@@ -86,5 +86,8 @@ show_percentage = false
 [node name="MPRecharge" type="Timer" parent="." unique_id=1654175971]
 wait_time = 0.2
 autostart = true
+
+[node name="ShootingPoint" type="Marker2D" parent="." unique_id=859162616]
+unique_name_in_owner = true
 
 [connection signal="timeout" from="MPRecharge" to="." method="_on_mp_recharge_timeout"]
