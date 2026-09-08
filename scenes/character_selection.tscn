@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://b6y7q010vs6k6"]
+
+[ext_resource type="Script" uid="uid://dg5nrmxpr7uv0" path="res://scripts/character_selection.gd" id="1_q54je"]
+
+[node name="CharacterSelection" type="Control" unique_id=2121782435]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_q54je")
+
+[node name="Background" type="TextureRect" parent="." unique_id=392042386]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+
+[node name="BottomContainer" type="CenterContainer" parent="." unique_id=717844862]
+layout_mode = 0
+offset_top = 488.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="StartGame" type="Button" parent="BottomContainer" unique_id=723201553]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "START GAME"
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=632344867]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 384.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1453958698]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="CharacterName" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1816747884]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "CHARACTER NAME"
+
+[node name="CharacterSprite" type="TextureRect" parent="CenterContainer/VBoxContainer" unique_id=1843730439]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Previous" type="Button" parent="." unique_id=278657697]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 299.0
+offset_right = 70.0
+offset_bottom = 349.0
+theme_override_font_sizes/font_size = 30
+text = "<"
+
+[node name="Next" type="Button" parent="." unique_id=913004287]
+layout_mode = 0
+offset_left = 1079.0
+offset_top = 299.0
+offset_right = 1104.0
+offset_bottom = 349.0
+theme_override_font_sizes/font_size = 30
+text = ">"
+
+[connection signal="pressed" from="BottomContainer/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]

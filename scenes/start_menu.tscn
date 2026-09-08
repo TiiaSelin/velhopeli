@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://qlkqtw5gsfu7"]
+
+[ext_resource type="Texture2D" uid="uid://b2x2626k23m7y" path="res://assets/mush-background.png" id="1_ouf4f"]
+[ext_resource type="Script" uid="uid://b8g8he0qjxn0g" path="res://scripts/start_menu.gd" id="1_thu50"]
+
+[node name="StartMenu" type="Control" unique_id=837078512]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_thu50")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1772496822]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_ouf4f")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1121651072]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 125.0
+
+[node name="Label" type="Label" parent="CenterContainer" unique_id=975784670]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "VELHOPELI"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer" unique_id=1174458363]
+layout_mode = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="." unique_id=1661360622]
+layout_mode = 0
+offset_top = 523.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer2" unique_id=40620715]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer2/MarginContainer" unique_id=423939027]
+layout_mode = 2
+theme_override_constants/separation = 400
+
+[node name="CharacterSelection" type="Button" parent="CenterContainer2/MarginContainer/HBoxContainer" unique_id=1595530320]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "CHARACTER SELECTION"
+
+[node name="Controls" type="Button" parent="CenterContainer2/MarginContainer/HBoxContainer" unique_id=1457110725]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "CONTROLS"
+
+[connection signal="pressed" from="CenterContainer2/MarginContainer/HBoxContainer/CharacterSelection" to="." method="_on_character_selection_pressed"]
+[connection signal="pressed" from="CenterContainer2/MarginContainer/HBoxContainer/Controls" to="." method="_on_controls_pressed"]
