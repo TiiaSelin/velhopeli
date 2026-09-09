@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://dra2xi6se5sfb" path="res://assets/sienihahmo.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c6npchk4r1gto" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Resource" uid="uid://cmm1uhajdt0v" path="res://resources/spells/spells/default.tres" id="2_dqkch"]
+[ext_resource type="Resource" uid="uid://d4nxtpuwull07" path="res://resources/spells/spells/fire_projectile_none.tres" id="2_qhqgy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_78565"]
 radius = 30.066593
@@ -39,6 +41,8 @@ corner_radius_bottom_left = 5
 
 [node name="Player" type="CharacterBody2D" unique_id=1059790719]
 script = ExtResource("1_g2els")
+default_spell = ExtResource("2_dqkch")
+selected_spell = ExtResource("2_qhqgy")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=571803108]
 

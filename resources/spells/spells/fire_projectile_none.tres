@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SpellData" format=3 uid="uid://d4nxtpuwull07"]
+
+[ext_resource type="Resource" uid="uid://34252uneh04g" path="res://resources/spells/effects/none_effect.tres" id="1_rwdgl"]
+[ext_resource type="Script" uid="uid://bwkvks82idov0" path="res://scripts/spells/spell_data.gd" id="1_vcqc3"]
+[ext_resource type="Resource" uid="uid://dw3bh06wvjfay" path="res://resources/spells/elements/fire_element.tres" id="2_pfpsw"]
+[ext_resource type="Resource" uid="uid://cvfil4a55ud42" path="res://resources/spells/forms/projectile_form.tres" id="3_b6xr7"]
+
+[resource]
+script = ExtResource("1_vcqc3")
+spell_name = "Fire Projectile"
+mana_cost = 20.0
+damage = 2.0
+element = ExtResource("2_pfpsw")
+form = ExtResource("3_b6xr7")
+effect = ExtResource("1_rwdgl")
+metadata/_custom_type_script = "uid://bwkvks82idov0"

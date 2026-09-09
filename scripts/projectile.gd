@@ -1,5 +1,6 @@
 extends Area2D
 
+var spell_data: SpellData
 var travel_distance = 0
 
 func _physics_process(delta: float) -> void:
@@ -16,4 +17,4 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	queue_free()
 	if (body.has_method("take_damage")):
-		body.take_damage()
+		body.take_damage(spell_data.damage)

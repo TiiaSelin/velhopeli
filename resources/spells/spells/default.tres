@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpellData" format=3 uid="uid://cmm1uhajdt0v"]
+
+[ext_resource type="Resource" uid="uid://34252uneh04g" path="res://resources/spells/effects/none_effect.tres" id="1_655ea"]
+[ext_resource type="Script" uid="uid://bwkvks82idov0" path="res://scripts/spells/spell_data.gd" id="1_hnfb5"]
+[ext_resource type="Resource" uid="uid://dbdm5l6nujjb3" path="res://resources/spells/elements/none_element.tres" id="2_jdxor"]
+[ext_resource type="Resource" uid="uid://cvfil4a55ud42" path="res://resources/spells/forms/projectile_form.tres" id="3_ye8tc"]
+
+[resource]
+script = ExtResource("1_hnfb5")
+spell_name = "default_spell"
+element = ExtResource("2_jdxor")
+form = ExtResource("3_ye8tc")
+effect = ExtResource("1_655ea")
+metadata/_custom_type_script = "uid://bwkvks82idov0"

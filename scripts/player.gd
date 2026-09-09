@@ -5,6 +5,9 @@ var mana = 100.0
 var max_mana = 100.0
 const PROJECTILE = preload("res://scenes/projectile.tscn")
 
+@export var default_spell: SpellData
+@export var selected_spell: SpellData
+
 # Pelaajahahmon liike
 func _physics_process(_delta: float) -> void:
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -30,21 +33,44 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			cast_default()
+		elif event.button_index == MOUSE_BUTTON_RIGHT:
+			cast_selected()
 
 # Spell types.
 func cast_default():
-	if mana < 10:
+	if mana < default_spell.mana_cost:
 		return
-	mana -= 10
+
+	mana -= default_spell.mana_cost
 	%ManaBar.value = mana
-	
-	var new_projectile = PROJECTILE.instantiate()
+
+	var new_projectile = default_spell.form.spell_scene.instantiate()
+	new_projectile.spell_data = default_spell
 
 	var target = get_global_mouse_position()
 	var angle = global_position.angle_to_point(target)
 
 	new_projectile.rotation = angle
 
+	get_parent().add_child(new_projectile)
+	new_projectile.global_position = %ShootingPoint.global_position
+	new_projectile.global_rotation = %ShootingPoint.global_rotation
+	
+func cast_selected():
+	if mana < selected_spell.mana_cost:
+		return
+	
+	mana -= selected_spell.mana_cost
+	%ManaBar.value = mana
+	
+	var new_projectile = selected_spell.form.spell_scene.instantiate()
+	new_projectile.spell_data = selected_spell
+	
+	var target = get_global_mouse_position()
+	var angle = global_position.angle_to_point(target)
+	
+	new_projectile.rotation = angle
+	
 	get_parent().add_child(new_projectile)
 	new_projectile.global_position = %ShootingPoint.global_position
 	new_projectile.global_rotation = %ShootingPoint.global_rotation
