@@ -14,20 +14,20 @@ func _physics_process(_delta: float) -> void:
 #Hahmon nopeus
 	velocity = direction * 650
 	move_and_slide()
-	
+
 	%ShootingPoint.global_rotation = global_position.angle_to_point(get_global_mouse_position())
 
 	# Player damage and game over.
 	const DAMAGE_RATE = 50.0
 	var overlapping_enemies = %HurtBox.get_overlapping_bodies()
-	
+
 	if overlapping_enemies.size() > 0:
 		health -= DAMAGE_RATE * overlapping_enemies.size() * _delta
 		%HealthBar.value = health
 		if health <= 0.0:
 			print("Game over.")
 			get_tree().paused = true
-			
+
 # Player inputs.
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
@@ -38,39 +38,26 @@ func _input(event: InputEvent) -> void:
 
 # Spell types.
 func cast_default():
-	if mana < default_spell.mana_cost:
-		return
+	cast_spell(default_spell)
 
-	mana -= default_spell.mana_cost
-	%ManaBar.value = mana
-
-	var new_projectile = default_spell.form.spell_scene.instantiate()
-	new_projectile.spell_data = default_spell
-
-	var target = get_global_mouse_position()
-	var angle = global_position.angle_to_point(target)
-
-	new_projectile.rotation = angle
-
-	get_parent().add_child(new_projectile)
-	new_projectile.global_position = %ShootingPoint.global_position
-	new_projectile.global_rotation = %ShootingPoint.global_rotation
-	
 func cast_selected():
-	if mana < selected_spell.mana_cost:
+	cast_spell(selected_spell)
+
+func cast_spell(spell):
+	if mana < spell.mana_cost:
 		return
-	
-	mana -= selected_spell.mana_cost
+
+	mana -= spell.mana_cost
 	%ManaBar.value = mana
-	
-	var new_projectile = selected_spell.form.spell_scene.instantiate()
-	new_projectile.spell_data = selected_spell
-	
+
+	var new_projectile = spell.form.spell_scene.instantiate()
+	new_projectile.spell_data = spell
+
 	var target = get_global_mouse_position()
 	var angle = global_position.angle_to_point(target)
-	
+
 	new_projectile.rotation = angle
-	
+
 	get_parent().add_child(new_projectile)
 	new_projectile.global_position = %ShootingPoint.global_position
 	new_projectile.global_rotation = %ShootingPoint.global_rotation
