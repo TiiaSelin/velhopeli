@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ElementData" format=3 uid="uid://dw3bh06wvjfay"]
+
+[ext_resource type="Script" uid="uid://ytqv1wmukc12" path="res://scripts/spells/element_data.gd" id="1_xb78j"]
+
+[resource]
+script = ExtResource("1_xb78j")
+element_name = "Fire"
+damage_bonus = 1.0
+metadata/_custom_type_script = "uid://ytqv1wmukc12"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FormData" format=3 uid="uid://cvfil4a55ud42"]
+
+[ext_resource type="Script" uid="uid://bbl0jw45xiv4c" path="res://scripts/spells/form_data.gd" id="1_o5nvk"]
+[ext_resource type="PackedScene" uid="uid://bj66fjtlgyhui" path="res://scenes/projectile.tscn" id="2_f2snm"]
+
+[resource]
+script = ExtResource("1_o5nvk")
+form_name = "Projectile"
+spell_scene = ExtResource("2_f2snm")
+metadata/_custom_type_script = "uid://bbl0jw45xiv4c"

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SpellLibrary" format=3 uid="uid://ceotdx3qiukor"]
+
+[ext_resource type="Script" uid="uid://bijiio0ap0aaq" path="res://scripts/spells/effect_data.gd" id="1_hkbqn"]
+[ext_resource type="Resource" uid="uid://34252uneh04g" path="res://resources/spells/effects/none_effect.tres" id="2_22ya2"]
+[ext_resource type="Script" uid="uid://ytqv1wmukc12" path="res://scripts/spells/element_data.gd" id="2_hdvxm"]
+[ext_resource type="Script" uid="uid://bbl0jw45xiv4c" path="res://scripts/spells/form_data.gd" id="3_q7q3e"]
+[ext_resource type="Resource" uid="uid://dw3bh06wvjfay" path="res://resources/spells/elements/fire_element.tres" id="4_4lcyc"]
+[ext_resource type="Script" uid="uid://d1104gj5fxils" path="res://scripts/spells/spell_library.gd" id="4_va3ag"]
+[ext_resource type="Resource" uid="uid://dbdm5l6nujjb3" path="res://resources/spells/elements/none_element.tres" id="5_x5wqj"]
+[ext_resource type="Resource" uid="uid://cvfil4a55ud42" path="res://resources/spells/forms/projectile_form.tres" id="7_eeu38"]
+
+[resource]
+script = ExtResource("4_va3ag")
+elements = Array[ExtResource("2_hdvxm")]([ExtResource("4_4lcyc"), ExtResource("5_x5wqj")])
+forms = Array[ExtResource("3_q7q3e")]([ExtResource("7_eeu38")])
+effects = Array[ExtResource("1_hkbqn")]([ExtResource("2_22ya2")])
+metadata/_custom_type_script = "uid://d1104gj5fxils"

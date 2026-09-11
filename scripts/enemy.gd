@@ -12,8 +12,8 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 # Damage and death. 
-func take_damage():
-	health -= 1
+func take_damage(damage):
+	health -= damage
 	%HealthBar.value = health
 	
 	if health <= 0:

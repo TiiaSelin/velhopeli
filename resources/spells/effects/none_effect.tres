@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EffectData" format=3 uid="uid://34252uneh04g"]
+
+[ext_resource type="Script" uid="uid://bijiio0ap0aaq" path="res://scripts/spells/effect_data.gd" id="1_sj8h7"]
+
+[resource]
+script = ExtResource("1_sj8h7")
+effect_name = "None"
+metadata/_custom_type_script = "uid://bijiio0ap0aaq"
