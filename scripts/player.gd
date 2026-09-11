@@ -7,10 +7,7 @@ const PROJECTILE = preload("res://scenes/projectile.tscn")
 
 var default_spell: SpellData
 var selected_spell: SpellData
-@export var none_element: ElementData
-@export var fire_element: ElementData
-@export var projectile_form: FormData
-@export var none_effect: EffectData
+@export var spell_library: SpellLibrary
 
 # Pelaajahahmon liike
 func _physics_process(_delta: float) -> void:
@@ -35,10 +32,18 @@ func _physics_process(_delta: float) -> void:
 # Create spells on runtime.
 func _ready() -> void:
 	default_spell = SpellData.new()
-	default_spell.setup(none_element, projectile_form, none_effect)
+	default_spell.setup(
+		spell_library.get_element("None"),
+		spell_library.get_form("Projectile"),
+		spell_library.get_effect("None")
+	)
 
 	selected_spell = SpellData.new()
-	selected_spell.setup(fire_element, projectile_form, none_effect)
+	selected_spell.setup(
+		spell_library.get_element("Fire"),
+		spell_library.get_form("Projectile"),
+		spell_library.get_effect("None")
+	)
 
 # Player inputs.
 func _input(event: InputEvent) -> void:
