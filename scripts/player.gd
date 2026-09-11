@@ -5,8 +5,12 @@ var mana = 100.0
 var max_mana = 100.0
 const PROJECTILE = preload("res://scenes/projectile.tscn")
 
-@export var default_spell: SpellData
-@export var selected_spell: SpellData
+var default_spell: SpellData
+var selected_spell: SpellData
+@export var none_element: ElementData
+@export var fire_element: ElementData
+@export var projectile_form: FormData
+@export var none_effect: EffectData
 
 # Pelaajahahmon liike
 func _physics_process(_delta: float) -> void:
@@ -28,6 +32,14 @@ func _physics_process(_delta: float) -> void:
 			print("Game over.")
 			get_tree().paused = true
 
+# Create spells on runtime.
+func _ready() -> void:
+	default_spell = SpellData.new()
+	default_spell.setup(none_element, projectile_form, none_effect)
+
+	selected_spell = SpellData.new()
+	selected_spell.setup(fire_element, projectile_form, none_effect)
+
 # Player inputs.
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
@@ -38,16 +50,16 @@ func _input(event: InputEvent) -> void:
 
 # Spell types.
 func cast_default():
-	cast_spell(default_spell)
+	cast_spell(default_spell, 10)
 
 func cast_selected():
-	cast_spell(selected_spell)
+	cast_spell(selected_spell, 20)
 
-func cast_spell(spell):
-	if mana < spell.mana_cost:
+func cast_spell(spell, mana_cost):
+	if mana < mana_cost:
 		return
 
-	mana -= spell.mana_cost
+	mana -= mana_cost
 	%ManaBar.value = mana
 
 	var new_projectile = spell.form.spell_scene.instantiate()

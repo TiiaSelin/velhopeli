@@ -1,11 +1,11 @@
 class_name SpellData
 extends Resource
 
-@export var spell_name: String
-
-@export var mana_cost: float = 10.0
-@export var damage: float = 1.0
-
 @export var element: ElementData
 @export var form: FormData
 @export var effect: EffectData
+
+func setup(new_element: ElementData, new_form: FormData, new_effect: EffectData) -> void:
+	element = new_element
+	form = new_form
+	effect = new_effect
