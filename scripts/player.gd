@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var health = 100.0
+var max_health = 100.0
 var mana = 100.0
 var max_mana = 100.0
 const PROJECTILE = preload("res://scenes/projectile.tscn")
@@ -8,6 +9,10 @@ const PROJECTILE = preload("res://scenes/projectile.tscn")
 var default_spell: SpellData
 var selected_spell: SpellData
 @export var spell_library: SpellLibrary
+
+var health_potion = preload("res://resources/items/health_potion.tres")
+var mana_potion = preload("res://resources/items/mana_potion.tres")
+var inventory: Inventory = Inventory.new()
 
 # Pelaajahahmon liike
 func _physics_process(_delta: float) -> void:
@@ -23,7 +28,7 @@ func _physics_process(_delta: float) -> void:
 	var overlapping_enemies = %HurtBox.get_overlapping_bodies()
 
 	if overlapping_enemies.size() > 0:
-		health -= DAMAGE_RATE * overlapping_enemies.size() * _delta
+		update_health(-DAMAGE_RATE * overlapping_enemies.size() * _delta)
 		%HealthBar.value = health
 		if health <= 0.0:
 			print("Game over.")
@@ -44,6 +49,10 @@ func _ready() -> void:
 		spell_library.get_form("Projectile"),
 		spell_library.get_effect("None")
 	)
+	
+	# Temporarily add items to inventory
+	inventory.add_item(health_potion)
+	inventory.add_item(mana_potion)
 
 # Player inputs.
 func _input(event: InputEvent) -> void:
@@ -52,6 +61,11 @@ func _input(event: InputEvent) -> void:
 			cast_default()
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
 			cast_selected()
+	elif event is InputEventKey and event.pressed:
+		if event.keycode == KEY_1:
+			use_item(inventory.get_item_in_slot(0))
+		elif event.keycode == KEY_2:
+			use_item(inventory.get_item_in_slot(1))
 
 # Spell types.
 func cast_default():
@@ -64,7 +78,7 @@ func cast_spell(spell, mana_cost):
 	if mana < mana_cost:
 		return
 
-	mana -= mana_cost
+	update_mana(-mana_cost)
 	%ManaBar.value = mana
 
 	var new_projectile = spell.form.spell_scene.instantiate()
@@ -79,7 +93,29 @@ func cast_spell(spell, mana_cost):
 	new_projectile.global_position = %ShootingPoint.global_position
 	new_projectile.global_rotation = %ShootingPoint.global_rotation
 
+# Item usage.
+func use_item(item) -> void:
+	if item == null:
+		return
+
+	if not inventory.use_item(item):
+		return
+
+	match item.effect_type:
+		ItemData.EffectType.HEALTH:
+			update_health(item.effect_amount)
+		ItemData.EffectType.MANA:
+			update_mana(item.effect_amount)
+
 # Mana recharge.
 func _on_mp_recharge_timeout() -> void:
-	mana = clamp(mana + 1.0, 0.0, max_mana)
+	update_mana(1.0)
+	%ManaBar.value = mana
+	
+func update_health(amount) -> void:
+	health = clamp(health + amount, 0.0, max_health)
+	%HealthBar.value = health
+
+func update_mana(amount) -> void:
+	mana = clamp(mana + amount, 0.0, max_mana)
 	%ManaBar.value = mana
