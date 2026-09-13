@@ -17,4 +17,5 @@ func take_damage(damage):
 	%HealthBar.value = health
 	
 	if health <= 0:
+		player.update_currency(1)
 		queue_free()

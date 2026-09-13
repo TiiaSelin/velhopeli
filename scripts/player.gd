@@ -4,6 +4,7 @@ var health = 100.0
 var max_health = 100.0
 var mana = 100.0
 var max_mana = 100.0
+var currency = 0
 const PROJECTILE = preload("res://scenes/projectile.tscn")
 
 var default_spell: SpellData
@@ -110,8 +111,7 @@ func use_item(item) -> void:
 # Mana recharge.
 func _on_mp_recharge_timeout() -> void:
 	update_mana(1.0)
-	%ManaBar.value = mana
-	
+
 func update_health(amount) -> void:
 	health = clamp(health + amount, 0.0, max_health)
 	%HealthBar.value = health
@@ -119,3 +119,7 @@ func update_health(amount) -> void:
 func update_mana(amount) -> void:
 	mana = clamp(mana + amount, 0.0, max_mana)
 	%ManaBar.value = mana
+
+func update_currency(amount) -> void:
+	currency += amount
+	print(currency)
