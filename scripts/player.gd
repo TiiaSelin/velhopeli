@@ -122,4 +122,4 @@ func update_mana(amount) -> void:
 
 func update_currency(amount) -> void:
 	currency += amount
-	print(currency)
+	print("Currency: " , currency , ".")

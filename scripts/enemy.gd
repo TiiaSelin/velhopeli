@@ -17,5 +17,11 @@ func take_damage(damage):
 	%HealthBar.value = health
 	
 	if health <= 0:
-		player.update_currency(1)
-		queue_free()
+		call_deferred("spawn_currency_pickup")
+		call_deferred("queue_free")
+
+# Spawn currency upon death.
+func spawn_currency_pickup():
+	var currency_pickup = preload("res://scenes/currency_pickup.tscn").instantiate()
+	currency_pickup.position = position
+	get_parent().add_child(currency_pickup)
