@@ -10,3 +10,7 @@ func spawn_enemies():
 
 func _on_timer_timeout() -> void:
 	spawn_enemies()
+
+
+func _on_level_timer_timeout() -> void:
+	get_tree().change_scene_to_file("res://scenes/level_clear_menu.tscn")
