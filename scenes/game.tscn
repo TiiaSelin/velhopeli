@@ -29,4 +29,9 @@ rotation = 0.001858734
 [node name="Timer" type="Timer" parent="." unique_id=1544981485]
 autostart = true
 
+[node name="LevelTimer" type="Timer" parent="." unique_id=687213331]
+wait_time = 10.0
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
