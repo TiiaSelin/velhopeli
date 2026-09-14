@@ -9,7 +9,7 @@ offset_right = 1152.0
 offset_bottom = 648.0
 script = ExtResource("1_880qh")
 
-[node name="Label" type="Label" parent="." unique_id=1735542939]
+[node name="HeaderLabel" type="Label" parent="." unique_id=1735542939]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 68.0
@@ -26,5 +26,16 @@ offset_right = 689.0
 offset_bottom = 582.0
 theme_override_font_sizes/font_size = 30
 text = "NEXT LEVEL"
+
+[node name="CurrencyLabel" type="Label" parent="." unique_id=803752433]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 374.0
+offset_top = 153.0
+offset_right = 759.0
+offset_bottom = 248.0
+theme_override_font_sizes/font_size = 32
+text = "Placeholder text."
+horizontal_alignment = 1
 
 [connection signal="pressed" from="NextLevel" to="." method="_on_next_level_pressed"]
