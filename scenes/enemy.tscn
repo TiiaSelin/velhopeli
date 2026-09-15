@@ -46,3 +46,8 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_6q2a6")
 max_value = 3.0
 value = 3.0
 show_percentage = false
+
+[node name="IceTimer" type="Timer" parent="." unique_id=30031650]
+one_shot = true
+
+[connection signal="timeout" from="IceTimer" to="." method="_on_ice_timer_timeout"]

@@ -19,3 +19,5 @@ func _on_body_entered(body: Node2D) -> void:
 	if (body.has_method("take_damage")):
 		var damage = SpellCalculator.calculate_damage(spell_data)
 		body.take_damage(damage)
+		if spell_data.element.element_name == "Ice":
+			body.apply_ice(spell_data.element.slow_amount, spell_data.element.slow_duration)
