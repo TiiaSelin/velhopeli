@@ -45,6 +45,7 @@ func _ready() -> void:
 
 	selected_spell = SpellData.new()
 	selected_spell.setup(
+		# Temporarily change element here for different elements.
 		spell_library.get_element("Ice"),
 		spell_library.get_form("Projectile"),
 		spell_library.get_effect("None")

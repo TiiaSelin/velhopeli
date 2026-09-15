@@ -28,7 +28,7 @@ func spawn_currency_pickup():
 	currency_pickup.position = position
 	get_parent().add_child(currency_pickup)
 
-func apply_ice(amount: = 0.5, duration: = 2.0) -> void:
+func apply_ice(amount, duration) -> void:
 	current_speed = normal_speed * (1.0 - amount)
 	$IceTimer.start(duration)
 
