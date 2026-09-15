@@ -5,3 +5,5 @@ extends Resource
 
 # Properties of the elements here.
 @export var damage_bonus: float = 0.0
+@export var slow_amount: float = 0.0
+@export var slow_duration: float = 0.0
