@@ -38,17 +38,16 @@ func _physics_process(_delta: float) -> void:
 func _ready() -> void:
 	default_spell = SpellData.new()
 	default_spell.setup(
-		spell_library.get_element("None"),
-		spell_library.get_form("Projectile"),
-		spell_library.get_effect("None")
+		spell_library.get_element(GameState.default_spell["element"]),
+		spell_library.get_form(GameState.default_spell["form"]),
+		spell_library.get_effect(GameState.default_spell["effect"])
 	)
 
 	selected_spell = SpellData.new()
 	selected_spell.setup(
-		# Temporarily change element here for different elements.
-		spell_library.get_element("Ice"),
-		spell_library.get_form("Projectile"),
-		spell_library.get_effect("None")
+		spell_library.get_element(GameState.selected_spell["element"]),
+		spell_library.get_form(GameState.selected_spell["form"]),
+		spell_library.get_effect(GameState.selected_spell["effect"])
 	)
 	
 	# Temporarily add items to inventory

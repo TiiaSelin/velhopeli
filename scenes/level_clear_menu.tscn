@@ -17,23 +17,33 @@ theme_override_font_sizes/font_size = 37
 text = "LEVEL CLEARED."
 horizontal_alignment = 1
 
+[node name="SpellEditor" type="Button" parent="." unique_id=1922057192]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 445.0
+offset_top = 341.0
+offset_right = 704.0
+offset_bottom = 391.0
+theme_override_font_sizes/font_size = 30
+text = "SPELL EDITOR."
+
 [node name="Shop" type="Button" parent="." unique_id=1241577652]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 499.0
-offset_top = 382.0
-offset_right = 690.0
-offset_bottom = 432.0
+offset_left = 483.0
+offset_top = 448.0
+offset_right = 674.0
+offset_bottom = 498.0
 theme_override_font_sizes/font_size = 30
 text = "SHOP"
 
 [node name="NextLevel" type="Button" parent="." unique_id=2095413121]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 498.0
-offset_top = 532.0
-offset_right = 689.0
-offset_bottom = 582.0
+offset_left = 479.0
+offset_top = 559.0
+offset_right = 670.0
+offset_bottom = 609.0
 theme_override_font_sizes/font_size = 30
 text = "NEXT LEVEL"
 
@@ -48,5 +58,17 @@ theme_override_font_sizes/font_size = 32
 text = "Placeholder text."
 horizontal_alignment = 1
 
+[node name="CurrentSpellText" type="Label" parent="." unique_id=801980614]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 213.0
+offset_top = 249.0
+offset_right = 915.0
+offset_bottom = 330.0
+theme_override_font_sizes/font_size = 32
+text = "Placeholder text."
+horizontal_alignment = 1
+
+[connection signal="pressed" from="SpellEditor" to="." method="_on_spell_editor_pressed"]
 [connection signal="pressed" from="Shop" to="." method="_on_shop_pressed"]
 [connection signal="pressed" from="NextLevel" to="." method="_on_next_level_pressed"]

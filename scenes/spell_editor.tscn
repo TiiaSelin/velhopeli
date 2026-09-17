@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://f5mvyxafluck"]
+
+[ext_resource type="Script" uid="uid://yuvbu7pm4ry3" path="res://scripts/spell_editor.gd" id="1_0bfqb"]
+
+[node name="SpellEditor" type="Control" unique_id=2126626880]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0bfqb")
+
+[node name="HeaderLabel" type="Label" parent="." unique_id=1869360809]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 37
+text = "SPELL EDITOR."
+horizontal_alignment = 1
+
+[node name="CurrentSpellText" type="Label" parent="." unique_id=1506500199]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 223.0
+offset_top = 99.0
+offset_right = 925.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 32
+text = "Placeholder text."
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="." unique_id=786131647]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 536.0
+offset_right = 636.0
+offset_bottom = 584.0
+text = "BACK."
+
+[node name="Label" type="Label" parent="." unique_id=994113272]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 233.0
+offset_right = 157.0
+offset_bottom = 266.0
+text = "ELEMENT:"
+horizontal_alignment = 1
+
+[node name="ElementButtons" type="HBoxContainer" parent="." unique_id=252396607]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 53.0
+offset_top = 263.0
+offset_right = 1103.0
+offset_bottom = 317.0
+theme_override_constants/separation = 50
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

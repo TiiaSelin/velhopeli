@@ -12,10 +12,10 @@ func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/shop/shop.tscn")
 
 func update_fire_stock():
-	%FireStock.text = "In stock: %s" %GameState.elements.count("fire")
+	%FireStock.text = "In stock: %s" %GameState.elements.count("Fire")
 
 func update_ice_stock():
-	%IceStock.text = "In stock: %s" %GameState.elements.count("ice")
+	%IceStock.text = "In stock: %s" %GameState.elements.count("Ice")
 
 func buy_element(element, cost):
 	if GameState.currency >= cost:
@@ -34,17 +34,17 @@ func sell_element(element, cost):
 	return false
 
 func _on_buy_fire_pressed() -> void:
-	if buy_element("fire", 5):
+	if buy_element("Fire", 5):
 		update_fire_stock()
 
 func _on_sell_fire_pressed() -> void:
-	if sell_element("fire", 3):
+	if sell_element("Fire", 3):
 		update_fire_stock()
 
 func _on_buy_ice_pressed() -> void:
-	if buy_element("ice", 5):
+	if buy_element("Ice", 5):
 		update_ice_stock()
 
 func _on_sell_ice_pressed() -> void:
-	if sell_element("ice", 3):
+	if sell_element("Ice", 3):
 		update_ice_stock()
