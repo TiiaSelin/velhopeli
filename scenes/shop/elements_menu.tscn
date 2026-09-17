@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://b11amrmh2tkm6"]
+
+[ext_resource type="Script" uid="uid://smq6td3nnu1" path="res://scripts/shop/elements_menu.gd" id="1_glkse"]
+
+[node name="Control" type="Control" unique_id=1851158076]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_glkse")
+
+[node name="HeaderLabel" type="Label" parent="." unique_id=1097138620]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 37
+text = "ELEMENTS."
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="." unique_id=4877070]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 536.0
+offset_right = 636.0
+offset_bottom = 584.0
+text = "BACK."
+
+[node name="CurrencyLabel" type="Label" parent="." unique_id=2030890112]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 375.0
+offset_top = 78.0
+offset_right = 760.0
+offset_bottom = 133.0
+theme_override_font_sizes/font_size = 32
+text = "Placeholder text."
+horizontal_alignment = 1
+
+[node name="FireHBoxContainer" type="HBoxContainer" parent="." unique_id=1676408313]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 167.0
+offset_right = 1012.0
+offset_bottom = 226.0
+theme_override_constants/separation = 100
+
+[node name="Fire" type="Label" parent="FireHBoxContainer" unique_id=380297388]
+layout_mode = 2
+theme_override_font_sizes/font_size = 37
+text = "🔥"
+
+[node name="BuyFire" type="Button" parent="FireHBoxContainer" unique_id=1416786850]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "  BUY $5  "
+
+[node name="SellFire" type="Button" parent="FireHBoxContainer" unique_id=1429442538]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "  SELL  $3  "
+
+[node name="FireStock" type="Label" parent="FireHBoxContainer" unique_id=721803340]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "In Stock: 0."
+
+[node name="IceHBoxContainer" type="HBoxContainer" parent="." unique_id=283838522]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 279.0
+offset_right = 908.0
+offset_bottom = 338.0
+theme_override_constants/separation = 100
+
+[node name="Ice" type="Label" parent="IceHBoxContainer" unique_id=1926692146]
+layout_mode = 2
+theme_override_font_sizes/font_size = 37
+text = "❄️"
+
+[node name="BuyIce" type="Button" parent="IceHBoxContainer" unique_id=1875942409]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "  BUY $5  "
+
+[node name="SellIce" type="Button" parent="IceHBoxContainer" unique_id=1837497045]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "  SELL  $3  "
+
+[node name="IceStock" type="Label" parent="IceHBoxContainer" unique_id=380396590]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "In Stock: 0."
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="FireHBoxContainer/BuyFire" to="." method="_on_buy_fire_pressed"]
+[connection signal="pressed" from="FireHBoxContainer/SellFire" to="." method="_on_sell_fire_pressed"]
+[connection signal="pressed" from="IceHBoxContainer/BuyIce" to="." method="_on_buy_ice_pressed"]
+[connection signal="pressed" from="IceHBoxContainer/SellIce" to="." method="_on_sell_ice_pressed"]
