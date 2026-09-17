@@ -17,6 +17,16 @@ theme_override_font_sizes/font_size = 37
 text = "LEVEL CLEARED."
 horizontal_alignment = 1
 
+[node name="Shop" type="Button" parent="." unique_id=1241577652]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 499.0
+offset_top = 382.0
+offset_right = 690.0
+offset_bottom = 432.0
+theme_override_font_sizes/font_size = 30
+text = "SHOP"
+
 [node name="NextLevel" type="Button" parent="." unique_id=2095413121]
 unique_name_in_owner = true
 layout_mode = 0
@@ -38,4 +48,5 @@ theme_override_font_sizes/font_size = 32
 text = "Placeholder text."
 horizontal_alignment = 1
 
+[connection signal="pressed" from="Shop" to="." method="_on_shop_pressed"]
 [connection signal="pressed" from="NextLevel" to="." method="_on_next_level_pressed"]

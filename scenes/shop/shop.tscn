@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c32g2yew5j6m6"]
+
+[ext_resource type="Script" uid="uid://bmr35ify7m5xl" path="res://scripts/shop/shop.gd" id="1_100s2"]
+
+[node name="Shop" type="Control" unique_id=550430974]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_100s2")
+
+[node name="HeaderLabel" type="Label" parent="." unique_id=1994089708]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 37
+text = "SHOP."
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="." unique_id=747737585]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 536.0
+offset_right = 636.0
+offset_bottom = 584.0
+text = "BACK."
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
