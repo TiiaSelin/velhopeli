@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cu1vlbomehs2a"]
+
+[ext_resource type="Script" uid="uid://clohymchyks88" path="res://scripts/game_over_menu.gd" id="1_6ebp1"]
+
+[node name="GameOverMenu" type="Control" unique_id=2142151443]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6ebp1")
+
+[node name="HeaderLabel" type="Label" parent="." unique_id=1255704344]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 37
+text = "GAME OVER."
+horizontal_alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="." unique_id=913778619]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 536.0
+offset_right = 636.0
+offset_bottom = 584.0
+text = "MAIN MENU."
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]

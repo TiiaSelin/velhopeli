@@ -31,8 +31,7 @@ func _physics_process(_delta: float) -> void:
 		update_health(-DAMAGE_RATE * overlapping_enemies.size() * _delta)
 		%HealthBar.value = health
 		if health <= 0.0:
-			print("Game over.")
-			get_tree().paused = true
+			get_tree().change_scene_to_file("res://scenes/game_over_menu.tscn")
 
 # Create spells on runtime.
 func _ready() -> void:
