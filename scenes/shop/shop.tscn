@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://c32g2yew5j6m6"]
+
+[ext_resource type="Script" uid="uid://bmr35ify7m5xl" path="res://scripts/shop/shop.gd" id="1_100s2"]
+
+[node name="Shop" type="Control" unique_id=550430974]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_100s2")
+
+[node name="HeaderLabel" type="Label" parent="." unique_id=1994089708]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 37
+text = "SHOP."
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="." unique_id=747737585]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 536.0
+offset_right = 636.0
+offset_bottom = 584.0
+text = "BACK."
+
+[node name="DescriptionLabel" type="Label" parent="." unique_id=182159280]
+layout_mode = 0
+offset_left = 433.0
+offset_top = 93.0
+offset_right = 710.0
+offset_bottom = 163.0
+theme_override_font_sizes/font_size = 40
+text = "BUY / SELL"
+horizontal_alignment = 1
+
+[node name="ElementsButton" type="Button" parent="." unique_id=227769688]
+layout_mode = 0
+offset_left = 274.0
+offset_top = 224.0
+offset_right = 488.0
+offset_bottom = 296.0
+theme_override_font_sizes/font_size = 35
+text = "ELEMENTS"
+
+[node name="FormsButton" type="Button" parent="." unique_id=924142755]
+layout_mode = 0
+offset_left = 628.0
+offset_top = 225.0
+offset_right = 842.0
+offset_bottom = 297.0
+theme_override_font_sizes/font_size = 35
+text = "FORMS"
+
+[node name="EffectsButton" type="Button" parent="." unique_id=123216833]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 352.0
+offset_right = 486.0
+offset_bottom = 424.0
+theme_override_font_sizes/font_size = 35
+text = "EFFECTS"
+
+[node name="ItemsButton" type="Button" parent="." unique_id=101235088]
+layout_mode = 0
+offset_left = 626.0
+offset_top = 353.0
+offset_right = 840.0
+offset_bottom = 425.0
+theme_override_font_sizes/font_size = 35
+text = "ITEMS"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="ElementsButton" to="." method="_on_elements_button_pressed"]
