@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EffectData" format=3 uid="uid://bfuyine8ccqn6"]
+
+[ext_resource type="PackedScene" uid="uid://btrqnmtqmp4f3" path="res://scenes/explosion.tscn" id="1_664a4"]
+[ext_resource type="Script" uid="uid://bijiio0ap0aaq" path="res://scripts/spells/effect_data.gd" id="1_b1pho"]
+
+[resource]
+script = ExtResource("1_b1pho")
+effect_name = "Explosion"
+effect_scene = ExtResource("1_664a4")
+metadata/_custom_type_script = "uid://bijiio0ap0aaq"
