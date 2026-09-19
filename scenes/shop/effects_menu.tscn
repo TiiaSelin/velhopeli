@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://bs3lhbnu25r3i"]
+
+[ext_resource type="Script" uid="uid://cp8uxa7on0ua0" path="res://scripts/shop/effects_menu.gd" id="1_pbh45"]
+
+[node name="Control" type="Control" unique_id=1851158076]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pbh45")
+
+[node name="HeaderLabel" type="Label" parent="." unique_id=1097138620]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 37
+text = "EFFECTS."
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="." unique_id=4877070]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 536.0
+offset_right = 636.0
+offset_bottom = 584.0
+text = "BACK."
+
+[node name="CurrencyLabel" type="Label" parent="." unique_id=2030890112]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 375.0
+offset_top = 78.0
+offset_right = 760.0
+offset_bottom = 133.0
+theme_override_font_sizes/font_size = 32
+text = "Placeholder text."
+horizontal_alignment = 1
+
+[node name="ExpHBoxContainer" type="HBoxContainer" parent="." unique_id=1676408313]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 167.0
+offset_right = 1012.0
+offset_bottom = 226.0
+theme_override_constants/separation = 100
+
+[node name="Explosion" type="Label" parent="ExpHBoxContainer" unique_id=380297388]
+layout_mode = 2
+theme_override_font_sizes/font_size = 37
+text = "💥"
+
+[node name="BuyExplosion" type="Button" parent="ExpHBoxContainer" unique_id=1416786850]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "  BUY $5  "
+
+[node name="SellExplosion" type="Button" parent="ExpHBoxContainer" unique_id=1429442538]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "  SELL  $3  "
+
+[node name="ExplosionStock" type="Label" parent="ExpHBoxContainer" unique_id=721803340]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "In Stock: 0."
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="ExpHBoxContainer/BuyExplosion" to="." method="_on_buy_explosion_pressed"]
+[connection signal="pressed" from="ExpHBoxContainer/SellExplosion" to="." method="_on_sell_explosion_pressed"]
