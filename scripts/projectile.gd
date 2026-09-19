@@ -21,3 +21,11 @@ func _on_body_entered(body: Node2D) -> void:
 		body.take_damage(damage)
 		if spell_data.element.element_name == "Ice":
 			body.apply_ice(spell_data.element.slow_amount, spell_data.element.slow_duration)
+
+		if spell_data.effect.effect_scene:
+			call_deferred("create_effect")
+
+func create_effect() -> void:
+	var effect = spell_data.effect.effect_scene.instantiate()
+	effect.global_position = global_position
+	get_parent().add_child(effect)
