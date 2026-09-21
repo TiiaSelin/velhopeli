@@ -7,15 +7,37 @@ func _ready() -> void:
 	list_effects()
 
 func update_current_spell_text():
-	%CurrentSpellText.text = "Current spell: %s x%d, %s x%d, %s x%d." % [
+	%CurrentSpellText.text = "Current spell: %s, %s, %s." % [
+	("%s x%d" % [
 		GameState.selected_spell["element"],
-		GameState.selected_spell["element_power"],
+		GameState.selected_spell["element_power"]
+	]) if GameState.selected_spell["element"] else "No element",
+	("%s x%d" % [
 		GameState.selected_spell["form"],
-		GameState.selected_spell["form_power"],
+		GameState.selected_spell["form_power"]
+	]) if GameState.selected_spell["form"] else "No form",
+	("%s x%d" % [
 		GameState.selected_spell["effect"],
 		GameState.selected_spell["effect_power"]
+	]) if GameState.selected_spell["effect"] else "No effect"
 	]
 	update_power_texts()
+	update_spell_status()
+
+func update_spell_status() -> void:
+	if is_spell_usable():
+		%IsUsable.text = "Spell ready!"
+		%IsUsable.self_modulate = Color.GREEN
+	else:
+		%IsUsable.text = "Spell incomplete."
+		%IsUsable.self_modulate = Color.RED
+
+func is_spell_usable() -> bool:
+	return (
+		GameState.selected_spell["element"] != null
+		and GameState.selected_spell["form"] != null
+		and GameState.selected_spell["effect"] != null
+	)
 
 func update_power_texts() -> void:
 	%ElementPowerLabel.text = str(GameState.selected_spell["element_power"])
