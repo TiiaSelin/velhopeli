@@ -11,20 +11,24 @@ func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/shop/shop.tscn")
 
 func update_explosion_stock():
-	%ExplosionStock.text = "In stock: %s" %GameState.effects.count("Explosion")
+	%ExplosionStock.text = "In stock: %s" %GameState.effects.get("Explosion", 0)
 
 func buy_effect(effect, cost):
 	if GameState.currency >= cost:
 		GameState.currency -= cost
-		GameState.effects.append(effect)
+		GameState.effects[effect] = GameState.effects.get(effect, 0) + 1
 		update_currency_display()
 		return true
 	return false
 
 func sell_effect(effect, cost):
-	if GameState.effects.has(effect):
+	if GameState.effects.get(effect, 0) > 0:
 		GameState.currency += cost
-		GameState.effects.erase(effect)
+		GameState.effects[effect] -= 1
+
+		if GameState.effects[effect] == 0:
+			GameState.effects.erase(effect)
+
 		update_currency_display()
 		return true
 	return false

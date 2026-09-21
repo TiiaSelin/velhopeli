@@ -3,7 +3,7 @@ extends RefCounted
 
 static func calculate_damage(spell: SpellData) -> float:
 	var base_damage = 1.0
-	var element_damage = spell.element.damage_bonus
+	var element_damage = spell.element.damage_bonus * spell.element_power
 
 	return base_damage + element_damage
 
