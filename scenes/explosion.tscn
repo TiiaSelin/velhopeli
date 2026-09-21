@@ -9,5 +9,6 @@ radius = 159.0
 collision_mask = 2
 script = ExtResource("1_17npe")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=109462465]
+[node name="BlastRadius" type="CollisionShape2D" parent="." unique_id=109462465]
+unique_name_in_owner = true
 shape = SubResource("CircleShape2D_6shov")

@@ -27,5 +27,6 @@ func _on_body_entered(body: Node2D) -> void:
 
 func create_effect() -> void:
 	var effect = spell_data.effect.effect_scene.instantiate()
+	effect.spell_data = spell_data
 	effect.global_position = global_position
 	get_parent().add_child(effect)
