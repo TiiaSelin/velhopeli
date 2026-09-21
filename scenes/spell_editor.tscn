@@ -12,9 +12,12 @@ grow_vertical = 2
 script = ExtResource("1_0bfqb")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=902807644]
-layout_mode = 0
-offset_right = 1158.0
-offset_bottom = 1002.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1381254091]
 layout_mode = 2
@@ -72,6 +75,44 @@ text = "0"
 layout_mode = 2
 text = "+"
 
+[node name="FormsContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1906509706]
+layout_mode = 2
+
+[node name="FormLabel" type="Label" parent="ScrollContainer/VBoxContainer/FormsContainer" unique_id=273745645]
+layout_mode = 2
+text = "FORM:"
+horizontal_alignment = 1
+
+[node name="FormButtonsContainer" type="CenterContainer" parent="ScrollContainer/VBoxContainer/FormsContainer" unique_id=1418100057]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer/VBoxContainer/FormsContainer/FormButtonsContainer" unique_id=1258473979]
+layout_mode = 2
+
+[node name="FormButtons" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FormsContainer/FormButtonsContainer/GridContainer" unique_id=311424443]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="FormPowerContainer" type="CenterContainer" parent="ScrollContainer/VBoxContainer/FormsContainer" unique_id=1386233289]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FormsContainer/FormPowerContainer" unique_id=1673466192]
+layout_mode = 2
+
+[node name="MinusFormButton" type="Button" parent="ScrollContainer/VBoxContainer/FormsContainer/FormPowerContainer/HBoxContainer" unique_id=1022300581]
+layout_mode = 2
+text = "-"
+
+[node name="FormPowerLabel" type="Label" parent="ScrollContainer/VBoxContainer/FormsContainer/FormPowerContainer/HBoxContainer" unique_id=435945090]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="PlusFormButton" type="Button" parent="ScrollContainer/VBoxContainer/FormsContainer/FormPowerContainer/HBoxContainer" unique_id=235828071]
+layout_mode = 2
+text = "+"
+
 [node name="EffectsContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1684135149]
 layout_mode = 2
 
@@ -120,6 +161,8 @@ text = "BACK."
 
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/ElementsContainer/ElementPowerContainer/HBoxContainer/MinusElementButton" to="." method="_on_minus_element_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/ElementsContainer/ElementPowerContainer/HBoxContainer/PlusElementButton" to="." method="_on_plus_element_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/FormsContainer/FormPowerContainer/HBoxContainer/MinusFormButton" to="." method="_on_minus_form_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/FormsContainer/FormPowerContainer/HBoxContainer/PlusFormButton" to="." method="_on_plus_form_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/EffectsContainer/EffectPowerContainer/HBoxContainer/MinusEffectButton" to="." method="_on_minus_effect_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/EffectsContainer/EffectPowerContainer/HBoxContainer/PlusEffectButton" to="." method="_on_plus_effect_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/BackButtonContainer/BackButton" to="." method="_on_back_button_pressed"]

@@ -42,12 +42,7 @@ func _ready() -> void:
 		spell_library.get_effect(GameState.default_spell["effect"])
 	)
 
-	selected_spell = SpellData.new()
-	selected_spell.setup(
-		spell_library.get_element(GameState.selected_spell["element"]),
-		spell_library.get_form(GameState.selected_spell["form"]),
-		spell_library.get_effect(GameState.selected_spell["effect"])
-	)
+	selected_spell = create_spell(GameState.selected_spell)
 	
 	# Temporarily add items to inventory
 	inventory.add_item(health_potion)
@@ -71,6 +66,9 @@ func cast_default():
 	cast_spell(default_spell, 10)
 
 func cast_selected():
+	if selected_spell == null:
+		return
+
 	cast_spell(selected_spell, 20)
 
 func cast_spell(spell, mana_cost):
@@ -120,3 +118,26 @@ func update_mana(amount) -> void:
 
 func update_currency(amount) -> void:
 	GameState.currency += amount
+
+# Create "selected_spell".
+func create_spell(spell_data) -> SpellData:
+	var spell = SpellData.new()
+
+	if spell_data["element"] == null:
+		return null
+	elif spell_data["form"] == null:
+		return null
+	elif spell_data["effect"] == null:
+		return null
+
+	spell.setup(
+		spell_library.get_element(spell_data["element"]),
+		spell_library.get_form(spell_data["form"]),
+		spell_library.get_effect(spell_data["effect"])
+	)
+
+	spell.element_power = spell_data["element_power"]
+	spell.form_power = spell_data["form_power"]
+	spell.effect_power = spell_data["effect_power"]
+
+	return spell

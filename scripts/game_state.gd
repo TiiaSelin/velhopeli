@@ -1,9 +1,9 @@
 extends Node
 
 var currency = 10
-var elements = {"None": 1}
-var forms = {"Projectile": 1}
-var effects = {"None": 1}
+var elements = {}
+var forms = {}
+var effects = {}
 
 var default_spell = {
 	"element": "None",
@@ -15,10 +15,10 @@ var default_spell = {
 }
 
 var selected_spell = {
-	"element": "None",
+	"element": null,
 	"element_power": 1,
-	"form": "Projectile",
+	"form": null,
 	"form_power": 1,
-	"effect": "None",
+	"effect": null,
 	"effect_power": 1
 }
