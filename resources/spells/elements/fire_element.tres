@@ -6,4 +6,6 @@
 script = ExtResource("1_xb78j")
 element_name = "Fire"
 damage_bonus = 1.0
+slow_amount_per_power = 0.0
+slow_duration_per_power = 0.0
 metadata/_custom_type_script = "uid://ytqv1wmukc12"

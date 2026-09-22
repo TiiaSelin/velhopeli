@@ -7,3 +7,5 @@ extends Resource
 @export var damage_bonus: float = 0.0
 @export var slow_amount: float = 0.0
 @export var slow_duration: float = 0.0
+@export var slow_amount_per_power: float = 0.05
+@export var slow_duration_per_power: float = 0.5
