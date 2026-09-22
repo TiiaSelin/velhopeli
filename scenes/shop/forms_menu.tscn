@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://b6jsskpjahmvf"]
+
+[ext_resource type="Script" uid="uid://dw5fsoaxk4530" path="res://scripts/shop/forms_menu.gd" id="1_ngwj0"]
+
+[node name="Control" type="Control" unique_id=1490268491]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ngwj0")
+
+[node name="HeaderLabel" type="Label" parent="." unique_id=1511519902]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 37
+text = "FORMS."
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="." unique_id=795137541]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 536.0
+offset_right = 643.0
+offset_bottom = 584.0
+text = "BACK."
+
+[node name="CurrencyLabel" type="Label" parent="." unique_id=349187776]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 375.0
+offset_top = 78.0
+offset_right = 760.0
+offset_bottom = 133.0
+theme_override_font_sizes/font_size = 32
+text = "Placeholder text."
+horizontal_alignment = 1
+
+[node name="ProjHBoxContainer" type="HBoxContainer" parent="." unique_id=1239563092]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 167.0
+offset_right = 1012.0
+offset_bottom = 226.0
+theme_override_constants/separation = 100
+
+[node name="Projectile" type="Label" parent="ProjHBoxContainer" unique_id=576617923]
+layout_mode = 2
+theme_override_font_sizes/font_size = 37
+text = "☄️"
+
+[node name="BuyProjectile" type="Button" parent="ProjHBoxContainer" unique_id=1094036192]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "  BUY $5  "
+
+[node name="SellProjectile" type="Button" parent="ProjHBoxContainer" unique_id=1872813631]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "  SELL  $3  "
+
+[node name="ProjectileStock" type="Label" parent="ProjHBoxContainer" unique_id=2030210118]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "In Stock: 0."
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="ProjHBoxContainer/BuyProjectile" to="." method="_on_buy_projectile_pressed"]
+[connection signal="pressed" from="ProjHBoxContainer/SellProjectile" to="." method="_on_sell_projectile_pressed"]
