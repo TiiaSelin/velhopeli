@@ -1,6 +1,5 @@
 extends Area2D
 
-@export var damage: float = 1.0
 var spell_data: SpellData
 
 func _ready() -> void:
@@ -15,6 +14,6 @@ func _ready() -> void:
 
 	for body in bodies:
 		if body.has_method("take_damage"):
-			body.take_damage(damage)
+			SpellCalculator.apply_element(spell_data, body)
 
 	queue_free()

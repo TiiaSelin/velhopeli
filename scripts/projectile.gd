@@ -5,22 +5,20 @@ var travel_distance = 0
 
 func _physics_process(delta: float) -> void:
 	const SPEED = 1000
-	const RANGE = 1200
+	var range = spell_data.form.base_range + \
+		spell_data.form.range_per_power * (spell_data.form_power - 1)
 	
 	var direction = Vector2.RIGHT.rotated(rotation)
 	position += direction * SPEED * delta
 
 	travel_distance += SPEED * delta
-	if travel_distance > RANGE:
+	if travel_distance > range:
 		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
 	queue_free()
 	if (body.has_method("take_damage")):
-		var damage = SpellCalculator.calculate_damage(spell_data)
-		body.take_damage(damage)
-		if spell_data.element.element_name == "Ice":
-			body.apply_ice(spell_data.element.slow_amount, spell_data.element.slow_duration)
+		SpellCalculator.apply_element(spell_data, body)
 
 		if spell_data.effect.effect_scene:
 			call_deferred("create_effect")
