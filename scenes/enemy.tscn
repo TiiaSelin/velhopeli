@@ -2,6 +2,35 @@
 
 [ext_resource type="Texture2D" uid="uid://d32mkar0dpmvu" path="res://icon.svg" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://bq0qnd1rp5fp3" path="res://scripts/enemy.gd" id="1_md0e3"]
+[ext_resource type="Script" uid="uid://bxn6p0rmid7lk" path="res://scripts/loot/spell_part_drop.gd" id="2_4ra3w"]
+[ext_resource type="Resource" uid="uid://dw3bh06wvjfay" path="res://resources/spells/elements/fire_element.tres" id="3_c4w8v"]
+[ext_resource type="Resource" uid="uid://cvfil4a55ud42" path="res://resources/spells/forms/projectile_form.tres" id="4_xwavj"]
+[ext_resource type="Resource" uid="uid://msy104ewf4pp" path="res://resources/spells/elements/ice_element.tres" id="5_nenq2"]
+[ext_resource type="Resource" uid="uid://bfuyine8ccqn6" path="res://resources/spells/effects/explosion_effect.tres" id="6_md484"]
+
+[sub_resource type="Resource" id="Resource_otmr2"]
+script = ExtResource("2_4ra3w")
+part_type = "element"
+part_data = ExtResource("3_c4w8v")
+metadata/_custom_type_script = "uid://bxn6p0rmid7lk"
+
+[sub_resource type="Resource" id="Resource_wtq4b"]
+script = ExtResource("2_4ra3w")
+part_type = "form"
+part_data = ExtResource("4_xwavj")
+metadata/_custom_type_script = "uid://bxn6p0rmid7lk"
+
+[sub_resource type="Resource" id="Resource_ipns3"]
+script = ExtResource("2_4ra3w")
+part_type = "element"
+part_data = ExtResource("5_nenq2")
+metadata/_custom_type_script = "uid://bxn6p0rmid7lk"
+
+[sub_resource type="Resource" id="Resource_8qclf"]
+script = ExtResource("2_4ra3w")
+part_type = "effect"
+part_data = ExtResource("6_md484")
+metadata/_custom_type_script = "uid://bxn6p0rmid7lk"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5fy3n"]
 size = Vector2(67.625, 66.3125)
@@ -24,6 +53,7 @@ corner_radius_bottom_left = 5
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_md0e3")
+spell_part_drops = Array[ExtResource("2_4ra3w")]([SubResource("Resource_otmr2"), SubResource("Resource_wtq4b"), SubResource("Resource_ipns3"), SubResource("Resource_8qclf")])
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1297026995]
 position = Vector2(0.74999714, -0.25000286)
