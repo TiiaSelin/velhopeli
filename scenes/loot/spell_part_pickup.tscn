@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ddjwcbpy2ujmp"]
+
+[ext_resource type="Script" uid="uid://y31f2md1dlpw" path="res://scripts/loot/spell_part_pickup.gd" id="1_ai7hn"]
+[ext_resource type="Texture2D" uid="uid://csir5wn3opy4u" path="res://assets/fire_pickup.png" id="2_okl3s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6shov"]
+radius = 8.062258
+
+[node name="SpellPartPickup" type="Area2D" unique_id=194985064]
+script = ExtResource("1_ai7hn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=128384044]
+texture = ExtResource("2_okl3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1728752374]
+shape = SubResource("CircleShape2D_6shov")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
