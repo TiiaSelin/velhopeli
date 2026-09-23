@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="ElementData" format=3 uid="uid://dw3bh06wvjfay"]
 
+[ext_resource type="Texture2D" uid="uid://csir5wn3opy4u" path="res://assets/fire_pickup.png" id="1_tl3yv"]
 [ext_resource type="Script" uid="uid://ytqv1wmukc12" path="res://scripts/spells/element_data.gd" id="1_xb78j"]
 
 [resource]
 script = ExtResource("1_xb78j")
 element_name = "Fire"
+icon = ExtResource("1_tl3yv")
 damage_bonus = 1.0
 slow_amount_per_power = 0.0
 slow_duration_per_power = 0.0

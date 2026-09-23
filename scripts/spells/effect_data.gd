@@ -3,6 +3,7 @@ extends Resource
 
 @export var effect_name: String
 @export var effect_scene: PackedScene
+@export var icon: Texture2D
 
 # Properties of the effects here.
 @export var base_radius: float = 50.0

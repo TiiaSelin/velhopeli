@@ -8,6 +8,8 @@ radius = 8.062258
 
 [node name="SpellPartPickup" type="Area2D" unique_id=194985064]
 script = ExtResource("1_ai7hn")
+part_type = "element"
+part_name = "Fire"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=128384044]
 texture = ExtResource("2_okl3s")
