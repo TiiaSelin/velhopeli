@@ -4,6 +4,7 @@ var currency = 10
 var elements = {}
 var forms = {}
 var effects = {}
+var items = {}
 
 var default_spell = {
 	"element": "None",
