@@ -42,10 +42,10 @@ text = "BACK."
 
 [node name="HPPotHBoxContainer" type="HBoxContainer" parent="." unique_id=1320330213]
 layout_mode = 0
-offset_left = 187.0
-offset_top = 167.0
-offset_right = 1012.0
-offset_bottom = 226.0
+offset_left = 190.0
+offset_top = 264.0
+offset_right = 1015.0
+offset_bottom = 323.0
 theme_override_constants/separation = 100
 
 [node name="HPPot" type="TextureRect" parent="HPPotHBoxContainer" unique_id=1906514457]
@@ -71,10 +71,10 @@ text = "In Stock: 0."
 
 [node name="MPPotBoxContainer" type="HBoxContainer" parent="." unique_id=325112257]
 layout_mode = 0
-offset_left = 185.0
-offset_top = 279.0
-offset_right = 908.0
-offset_bottom = 338.0
+offset_left = 191.0
+offset_top = 372.0
+offset_right = 1010.0
+offset_bottom = 431.0
 theme_override_constants/separation = 100
 
 [node name="MPPot" type="TextureRect" parent="MPPotBoxContainer" unique_id=814517100]
@@ -97,5 +97,60 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "In Stock: 0."
+
+[node name="CurrentItemsContainer" type="HBoxContainer" parent="." unique_id=348999469]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 158.0
+offset_right = 1148.0
+offset_bottom = 222.0
+alignment = 1
+
+[node name="CurrentItems" type="Label" parent="CurrentItemsContainer" unique_id=800801646]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Current items: "
+
+[node name="Slot1" type="Panel" parent="CurrentItemsContainer" unique_id=1676565349]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Slot1Item" type="TextureRect" parent="CurrentItemsContainer/Slot1" unique_id=2111767820]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Slot2" type="Panel" parent="CurrentItemsContainer" unique_id=1910531682]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Slot2Item" type="TextureRect" parent="CurrentItemsContainer/Slot2" unique_id=967372216]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Slot3" type="Panel" parent="CurrentItemsContainer" unique_id=1311165694]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Slot3Item" type="TextureRect" parent="CurrentItemsContainer/Slot3" unique_id=1209292367]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

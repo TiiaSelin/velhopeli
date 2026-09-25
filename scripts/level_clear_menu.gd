@@ -16,6 +16,9 @@ func _ready() -> void:
 		GameState.selected_spell["effect_power"]
 	]) if GameState.selected_spell["effect"] else "No effect"
 	]
+	%Slot1Item.texture = GameState.inventory.get_item_in_slot(0).icon if GameState.inventory.get_item_in_slot(0) else null
+	%Slot2Item.texture = GameState.inventory.get_item_in_slot(1).icon if GameState.inventory.get_item_in_slot(1) else null
+	%Slot3Item.texture = GameState.inventory.get_item_in_slot(2).icon if GameState.inventory.get_item_in_slot(2) else null
 
 
 func _on_next_level_pressed() -> void:

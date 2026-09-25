@@ -9,66 +9,120 @@ offset_right = 1152.0
 offset_bottom = 648.0
 script = ExtResource("1_880qh")
 
-[node name="HeaderLabel" type="Label" parent="." unique_id=1735542939]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 68.0
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=255824416]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=51586843]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 60
+
+[node name="HeaderLabel" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=1735542939]
+layout_mode = 2
 theme_override_font_sizes/font_size = 37
 text = "LEVEL CLEARED."
 horizontal_alignment = 1
 
-[node name="SpellEditor" type="Button" parent="." unique_id=1922057192]
+[node name="CurrencyLabel" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=803752433]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 445.0
-offset_top = 341.0
-offset_right = 704.0
-offset_bottom = 391.0
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Placeholder text."
+horizontal_alignment = 1
+
+[node name="CurrentSpellText" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=801980614]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Placeholder text."
+horizontal_alignment = 1
+
+[node name="CurrentItemsContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=188301519]
+layout_mode = 2
+alignment = 1
+
+[node name="CurrentItems" type="Label" parent="ScrollContainer/VBoxContainer/CurrentItemsContainer" unique_id=1856055701]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Current items: "
+
+[node name="Slot1" type="Panel" parent="ScrollContainer/VBoxContainer/CurrentItemsContainer" unique_id=657950316]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Slot1Item" type="TextureRect" parent="ScrollContainer/VBoxContainer/CurrentItemsContainer/Slot1" unique_id=2065947331]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Slot2" type="Panel" parent="ScrollContainer/VBoxContainer/CurrentItemsContainer" unique_id=899753762]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Slot2Item" type="TextureRect" parent="ScrollContainer/VBoxContainer/CurrentItemsContainer/Slot2" unique_id=724201114]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Slot3" type="Panel" parent="ScrollContainer/VBoxContainer/CurrentItemsContainer" unique_id=1724080520]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Slot3Item" type="TextureRect" parent="ScrollContainer/VBoxContainer/CurrentItemsContainer/Slot3" unique_id=167697262]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="SpellEditorButtonContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1528477955]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="SpellEditor" type="Button" parent="ScrollContainer/VBoxContainer/SpellEditorButtonContainer" unique_id=1922057192]
+unique_name_in_owner = true
+layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "SPELL EDITOR."
 
-[node name="Shop" type="Button" parent="." unique_id=1241577652]
+[node name="ShopButtonContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=75284494]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Shop" type="Button" parent="ScrollContainer/VBoxContainer/ShopButtonContainer" unique_id=1241577652]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 483.0
-offset_top = 448.0
-offset_right = 674.0
-offset_bottom = 498.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "SHOP"
 
-[node name="NextLevel" type="Button" parent="." unique_id=2095413121]
+[node name="NextLevelButtonContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1716706561]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="NextLevel" type="Button" parent="ScrollContainer/VBoxContainer/NextLevelButtonContainer" unique_id=2095413121]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 479.0
-offset_top = 559.0
-offset_right = 670.0
-offset_bottom = 609.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "NEXT LEVEL"
 
-[node name="CurrencyLabel" type="Label" parent="." unique_id=803752433]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 374.0
-offset_top = 153.0
-offset_right = 759.0
-offset_bottom = 248.0
-theme_override_font_sizes/font_size = 32
-text = "Placeholder text."
-horizontal_alignment = 1
-
-[node name="CurrentSpellText" type="Label" parent="." unique_id=801980614]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 213.0
-offset_top = 249.0
-offset_right = 915.0
-offset_bottom = 330.0
-theme_override_font_sizes/font_size = 32
-text = "Placeholder text."
-horizontal_alignment = 1
-
-[connection signal="pressed" from="SpellEditor" to="." method="_on_spell_editor_pressed"]
-[connection signal="pressed" from="Shop" to="." method="_on_shop_pressed"]
-[connection signal="pressed" from="NextLevel" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/SpellEditorButtonContainer/SpellEditor" to="." method="_on_spell_editor_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/ShopButtonContainer/Shop" to="." method="_on_shop_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/NextLevelButtonContainer/NextLevel" to="." method="_on_next_level_pressed"]
