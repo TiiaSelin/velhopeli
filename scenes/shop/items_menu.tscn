@@ -4,6 +4,13 @@
 [ext_resource type="Script" uid="uid://s3mcpwhcuxtx" path="res://scripts/shop/items_menu.gd" id="1_c0ngr"]
 [ext_resource type="Texture2D" uid="uid://ohg1wweqkq07" path="res://assets/mana_potion.png" id="2_c0ngr"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0ngr"]
+bg_color = Color(0.13319641, 0.13319641, 0.13319635, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="Control" type="Control" unique_id=517329134]
 layout_mode = 3
 anchors_preset = 15
@@ -13,109 +20,43 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_c0ngr")
 
-[node name="HeaderLabel" type="Label" parent="." unique_id=405373591]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=129639833]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 69.0
+offset_right = 1153.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=457972054]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 60
+
+[node name="HeaderLabel" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=405373591]
+layout_mode = 2
 theme_override_font_sizes/font_size = 37
 text = "ITEMS."
 horizontal_alignment = 1
 
-[node name="CurrencyLabel" type="Label" parent="." unique_id=458288427]
+[node name="CurrencyLabel" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=458288427]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 375.0
-offset_top = 78.0
-offset_right = 760.0
-offset_bottom = 133.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Placeholder text."
 horizontal_alignment = 1
 
-[node name="BackButton" type="Button" parent="." unique_id=1151023615]
-layout_mode = 0
-offset_left = 503.0
-offset_top = 536.0
-offset_right = 636.0
-offset_bottom = 584.0
-text = "BACK."
-
-[node name="HPPotHBoxContainer" type="HBoxContainer" parent="." unique_id=1320330213]
-layout_mode = 0
-offset_left = 190.0
-offset_top = 264.0
-offset_right = 1015.0
-offset_bottom = 323.0
-theme_override_constants/separation = 100
-
-[node name="HPPot" type="TextureRect" parent="HPPotHBoxContainer" unique_id=1906514457]
+[node name="CurrentItemsContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=348999469]
 layout_mode = 2
-texture = ExtResource("1_8li6g")
-expand_mode = 3
-
-[node name="BuyHPPot" type="Button" parent="HPPotHBoxContainer" unique_id=1806006979]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "  BUY $5  "
-
-[node name="SellHPPot" type="Button" parent="HPPotHBoxContainer" unique_id=1036508238]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "  SELL  $3  "
-
-[node name="HPPotStock" type="Label" parent="HPPotHBoxContainer" unique_id=1309094676]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "In Stock: 0."
-
-[node name="MPPotBoxContainer" type="HBoxContainer" parent="." unique_id=325112257]
-layout_mode = 0
-offset_left = 191.0
-offset_top = 372.0
-offset_right = 1010.0
-offset_bottom = 431.0
-theme_override_constants/separation = 100
-
-[node name="MPPot" type="TextureRect" parent="MPPotBoxContainer" unique_id=814517100]
-layout_mode = 2
-texture = ExtResource("2_c0ngr")
-expand_mode = 3
-
-[node name="BuyMPPot" type="Button" parent="MPPotBoxContainer" unique_id=1164388049]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "  BUY $5  "
-
-[node name="SellMPPot" type="Button" parent="MPPotBoxContainer" unique_id=1449350058]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "  SELL  $3  "
-
-[node name="MPPotStock" type="Label" parent="MPPotBoxContainer" unique_id=336357471]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "In Stock: 0."
-
-[node name="CurrentItemsContainer" type="HBoxContainer" parent="." unique_id=348999469]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 158.0
-offset_right = 1148.0
-offset_bottom = 222.0
 alignment = 1
 
-[node name="CurrentItems" type="Label" parent="CurrentItemsContainer" unique_id=800801646]
+[node name="CurrentItems" type="Label" parent="ScrollContainer/VBoxContainer/CurrentItemsContainer" unique_id=800801646]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Current items: "
 
-[node name="Slot1" type="Panel" parent="CurrentItemsContainer" unique_id=1676565349]
+[node name="Slot1" type="Button" parent="ScrollContainer/VBoxContainer/CurrentItemsContainer" unique_id=1111368230]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
-[node name="Slot1Item" type="TextureRect" parent="CurrentItemsContainer/Slot1" unique_id=2111767820]
+[node name="Slot1Item" type="TextureRect" parent="ScrollContainer/VBoxContainer/CurrentItemsContainer/Slot1" unique_id=2111767820]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -125,11 +66,11 @@ grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 5
 
-[node name="Slot2" type="Panel" parent="CurrentItemsContainer" unique_id=1910531682]
+[node name="Slot2" type="Button" parent="ScrollContainer/VBoxContainer/CurrentItemsContainer" unique_id=492265375]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
-[node name="Slot2Item" type="TextureRect" parent="CurrentItemsContainer/Slot2" unique_id=967372216]
+[node name="Slot2Item" type="TextureRect" parent="ScrollContainer/VBoxContainer/CurrentItemsContainer/Slot2" unique_id=967372216]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -139,11 +80,11 @@ grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 5
 
-[node name="Slot3" type="Panel" parent="CurrentItemsContainer" unique_id=1311165694]
+[node name="Slot3" type="Button" parent="ScrollContainer/VBoxContainer/CurrentItemsContainer" unique_id=157560786]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
-[node name="Slot3Item" type="TextureRect" parent="CurrentItemsContainer/Slot3" unique_id=1209292367]
+[node name="Slot3Item" type="TextureRect" parent="ScrollContainer/VBoxContainer/CurrentItemsContainer/Slot3" unique_id=1209292367]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -153,4 +94,132 @@ grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 5
 
-[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[node name="HPPotHBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1320330213]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 100
+
+[node name="HPPot" type="TextureRect" parent="ScrollContainer/VBoxContainer/HPPotHBoxContainer" unique_id=1906514457]
+layout_mode = 2
+texture = ExtResource("1_8li6g")
+expand_mode = 3
+
+[node name="BuyHPPot" type="Button" parent="ScrollContainer/VBoxContainer/HPPotHBoxContainer" unique_id=1806006979]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "  BUY $5  "
+
+[node name="MPPotBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=325112257]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 100
+
+[node name="MPPot" type="TextureRect" parent="ScrollContainer/VBoxContainer/MPPotBoxContainer" unique_id=814517100]
+layout_mode = 2
+texture = ExtResource("2_c0ngr")
+expand_mode = 3
+
+[node name="BuyMPPot" type="Button" parent="ScrollContainer/VBoxContainer/MPPotBoxContainer" unique_id=1164388049]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "  BUY $5  "
+
+[node name="BackButtonContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=2102808266]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BackButton" type="Button" parent="ScrollContainer/VBoxContainer/BackButtonContainer" unique_id=1151023615]
+custom_minimum_size = Vector2(133, 48)
+layout_mode = 2
+text = "BACK."
+
+[node name="SellPanel" type="Panel" parent="." unique_id=861780393]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DimBackground" type="ColorRect" parent="SellPanel" unique_id=340117239]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.23529412, 0.23529412, 0.23529412, 0.54901963)
+
+[node name="Popup" type="Panel" parent="SellPanel" unique_id=833596429]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c0ngr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SellPanel/Popup" unique_id=1467451530]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 16.0
+offset_right = 4.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="ItemIcon" type="TextureRect" parent="SellPanel/Popup/VBoxContainer" unique_id=1488366103]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ItemLabel" type="Label" parent="SellPanel/Popup/VBoxContainer" unique_id=879733646]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Item name."
+
+[node name="SellPrice" type="Label" parent="SellPanel/Popup/VBoxContainer" unique_id=696327729]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Sell for $2?"
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="SellPanel/Popup/VBoxContainer" unique_id=2121296613]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="SellButton" type="Button" parent="SellPanel/Popup/VBoxContainer/ButtonsContainer" unique_id=411316812]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Sell."
+
+[node name="CancelButton" type="Button" parent="SellPanel/Popup/VBoxContainer/ButtonsContainer" unique_id=705389042]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Cancel."
+
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/CurrentItemsContainer/Slot1" to="." method="_on_slot_1_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/CurrentItemsContainer/Slot2" to="." method="_on_slot_2_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/CurrentItemsContainer/Slot3" to="." method="_on_slot_3_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HPPotHBoxContainer/BuyHPPot" to="." method="_on_buy_hp_pot_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/MPPotBoxContainer/BuyMPPot" to="." method="_on_buy_mp_pot_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/BackButtonContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="SellPanel/Popup/VBoxContainer/ButtonsContainer/SellButton" to="." method="_on_sell_button_pressed"]
+[connection signal="pressed" from="SellPanel/Popup/VBoxContainer/ButtonsContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
