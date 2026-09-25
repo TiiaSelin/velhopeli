@@ -9,3 +9,4 @@ enum EffectType {
 @export var item_name: String
 @export var effect_type: EffectType
 @export var effect_amount: int
+@export var icon: Texture2D

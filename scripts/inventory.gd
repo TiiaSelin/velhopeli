@@ -4,6 +4,8 @@ extends Resource
 var slots: Array[InventorySlot] = []
 const MAX_SLOTS = 3
 
+signal inventory_changed
+
 class InventorySlot:
 	var item: ItemData
 
@@ -15,6 +17,7 @@ func add_item(item: ItemData) -> bool:
 		return false
 
 	slots.append(InventorySlot.new(item))
+	inventory_changed.emit()
 	return true
 
 func get_item_in_slot(slot_index: int) -> ItemData:
@@ -27,6 +30,7 @@ func remove_item(item: ItemData) -> bool:
 	for slot in slots:
 		if slot.item == item:
 			slots.erase(slot)
+			inventory_changed.emit()
 			return true
 
 	return false
