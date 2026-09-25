@@ -10,10 +10,6 @@ var default_spell: SpellData
 var selected_spell: SpellData
 @export var spell_library: SpellLibrary
 
-var health_potion = preload("res://resources/items/health_potion.tres")
-var mana_potion = preload("res://resources/items/mana_potion.tres")
-var inventory: Inventory = Inventory.new()
-
 # Pelaajahahmon liike
 func _physics_process(_delta: float) -> void:
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -43,10 +39,6 @@ func _ready() -> void:
 	)
 
 	selected_spell = create_spell(GameState.selected_spell)
-	
-	# Temporarily add items to inventory
-	inventory.add_item(health_potion)
-	inventory.add_item(mana_potion)
 
 # Player inputs.
 func _input(event: InputEvent) -> void:
@@ -57,9 +49,9 @@ func _input(event: InputEvent) -> void:
 			cast_selected()
 	elif event is InputEventKey and event.pressed:
 		if event.keycode == KEY_1:
-			use_item(inventory.get_item_in_slot(0))
+			use_item(GameState.inventory.get_item_in_slot(0))
 		elif event.keycode == KEY_2:
-			use_item(inventory.get_item_in_slot(1))
+			use_item(GameState.inventory.get_item_in_slot(1))
 
 # Spell types.
 func cast_default():
@@ -95,7 +87,7 @@ func use_item(item) -> void:
 	if item == null:
 		return
 
-	if not inventory.use_item(item):
+	if not GameState.inventory.use_item(item):
 		return
 
 	match item.effect_type:

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bf430wy851rbg" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://4cm5gtio8g8e" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cpm4n85d0yt3y" path="res://scenes/boundaries.tscn" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://clopn3slj0owk" path="res://scripts/inventory_ui.gd" id="4_lbhrr"]
 
 [sub_resource type="Curve2D" id="Curve2D_lbhrr"]
 _data = {
@@ -32,6 +33,68 @@ autostart = true
 [node name="LevelTimer" type="Timer" parent="." unique_id=687213331]
 wait_time = 10.0
 autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=225337934]
+
+[node name="InventoryUI" type="Control" parent="CanvasLayer" unique_id=1845592363]
+custom_minimum_size = Vector2(220, 80)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("4_lbhrr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/InventoryUI" unique_id=918465029]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="Slot1" type="Panel" parent="CanvasLayer/InventoryUI/HBoxContainer" unique_id=1033172717]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/InventoryUI/HBoxContainer/Slot1" unique_id=1434565173]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Slot2" type="Panel" parent="CanvasLayer/InventoryUI/HBoxContainer" unique_id=668732741]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/InventoryUI/HBoxContainer/Slot2" unique_id=941912947]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Slot3" type="Panel" parent="CanvasLayer/InventoryUI/HBoxContainer" unique_id=1840294041]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/InventoryUI/HBoxContainer/Slot3" unique_id=186438554]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]

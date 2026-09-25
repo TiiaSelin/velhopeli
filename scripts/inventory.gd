@@ -2,30 +2,23 @@ class_name Inventory
 extends Resource
 
 var slots: Array[InventorySlot] = []
-const MAX_SLOTS = 10
+const MAX_SLOTS = 3
+
+signal inventory_changed
 
 class InventorySlot:
 	var item: ItemData
-	var quantity: int
 
-	func _init(item: ItemData, quantity: int = 1) -> void:
+	func _init(item: ItemData) -> void:
 		self.item = item
-		self.quantity = quantity
 
-func add_item(item, amount = 1) -> void:
-	for slot in slots:
-		if slot.item == item:
-			slot.quantity += amount
-			return
+func add_item(item: ItemData) -> bool:
+	if slots.size() >= MAX_SLOTS:
+		return false
 
-	for slot in slots:
-		if slot.item == null:
-			slot.item = item
-			slot.quantity = amount
-			return
-
-	if slots.size() < MAX_SLOTS:
-		slots.append(InventorySlot.new(item, amount))
+	slots.append(InventorySlot.new(item))
+	inventory_changed.emit()
+	return true
 
 func get_item_in_slot(slot_index: int) -> ItemData:
 	if slot_index < 0 or slot_index >= slots.size():
@@ -33,31 +26,26 @@ func get_item_in_slot(slot_index: int) -> ItemData:
 
 	return slots[slot_index].item
 
-func remove_item(item, amount = 1) -> void:
+func remove_item(item: ItemData) -> bool:
 	for slot in slots:
 		if slot.item == item:
-			slot.quantity -= amount
-
-			if slot.quantity <= 0:
-				slot.item = null
-				slot.quantity = 0
-
-			return
-
-func use_item(item) -> bool:
-	if item == null:
-		return false
-
-	for slot in slots:
-		if slot.item == item:
-			remove_item(item)
+			slots.erase(slot)
+			inventory_changed.emit()
 			return true
 
 	return false
 
-func get_item_count(item) -> int:
+func use_item(item: ItemData) -> bool:
+	if item == null:
+		return false
+
+	return remove_item(item)
+
+func get_item_count(item: ItemData) -> int:
+	var count := 0
+
 	for slot in slots:
 		if slot.item == item:
-			return slot.quantity
+			count += 1
 
-	return 0
+	return count

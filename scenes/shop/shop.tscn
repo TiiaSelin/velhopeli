@@ -77,3 +77,4 @@ text = "ITEMS"
 [connection signal="pressed" from="ElementsButton" to="." method="_on_elements_button_pressed"]
 [connection signal="pressed" from="FormsButton" to="." method="_on_forms_button_pressed"]
 [connection signal="pressed" from="EffectsButton" to="." method="_on_effects_button_pressed"]
+[connection signal="pressed" from="ItemsButton" to="." method="_on_items_button_pressed"]

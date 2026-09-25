@@ -1,9 +1,13 @@
 extends Node
 
+var health_potion = preload("res://resources/items/health_potion.tres")
+var mana_potion = preload("res://resources/items/mana_potion.tres")
+
 var currency = 10
 var elements = {}
 var forms = {}
 var effects = {}
+var inventory: Inventory = Inventory.new()
 
 var default_spell = {
 	"element": "None",
@@ -22,3 +26,7 @@ var selected_spell = {
 	"effect": null,
 	"effect_power": 1
 }
+
+func _ready() -> void:
+	inventory.add_item(health_potion)
+	inventory.add_item(mana_potion)
