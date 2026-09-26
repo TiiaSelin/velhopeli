@@ -5,11 +5,13 @@ extends Control
 var characters = [
 	{
 		"name": "Fire Mush",
-		"sprite": preload("res://assets/red_mushroom.png")
+		"sprite": preload("res://assets/red_mushroom.png"),
+		"preferred_elements": ["Fire"]
 	},
 	{
 		"name": "Ice Mush",
-		"sprite": preload("res://assets/blue_mushroom.png")
+		"sprite": preload("res://assets/blue_mushroom.png"),
+		"preferred_elements": ["Ice"]
 	}
 ]
 
@@ -26,6 +28,7 @@ func update_character_display():
 
 func _on_start_game_pressed() -> void:
 	GameState.selected_character = selected_character
+	GameState.preferred_elements = characters[selected_character]["preferred_elements"]
 	get_tree().change_scene_to_packed(game)
 
 func _on_previous_pressed() -> void:
