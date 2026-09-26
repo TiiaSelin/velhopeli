@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://4cm5gtio8g8e"]
 
-[ext_resource type="Texture2D" uid="uid://dra2xi6se5sfb" path="res://assets/sienihahmo.png" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://dra2xi6se5sfb" path="res://assets/red_mushroom.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c6npchk4r1gto" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Resource" uid="uid://ceotdx3qiukor" path="res://resources/spells/spell_library.tres" id="2_qhqgy"]
 
@@ -44,7 +44,8 @@ spell_library = ExtResource("2_qhqgy")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=571803108]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1651191877]
+[node name="PlayerSprite" type="Sprite2D" parent="." unique_id=1651191877]
+unique_name_in_owner = true
 position = Vector2(-2.1180491, 7.749998)
 scale = Vector2(0.07227175, 0.07218598)
 texture = ExtResource("1_3vyb7")

@@ -1,5 +1,8 @@
 extends Node
 
+var selected_character = 0
+var preferred_elements = []
+
 var health_potion = preload("res://resources/items/health_potion.tres")
 var mana_potion = preload("res://resources/items/mana_potion.tres")
 
