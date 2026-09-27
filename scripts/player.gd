@@ -31,6 +31,10 @@ func _physics_process(_delta: float) -> void:
 
 # Create spells on runtime.
 func _ready() -> void:
+	if GameState.selected_character == 0:
+		%PlayerSprite.texture = preload("res://assets/red_mushroom.png")
+	elif GameState.selected_character == 1:
+		%PlayerSprite.texture = preload("res://assets/blue_mushroom.png")
 	default_spell = SpellData.new()
 	default_spell.setup(
 		spell_library.get_element(GameState.default_spell["element"]),
