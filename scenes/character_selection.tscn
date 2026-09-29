@@ -20,6 +20,8 @@ border_width_left = 3
 border_width_top = 3
 border_width_bottom = 3
 border_color = Color(0.015686275, 0.015686275, 0.015686275, 1)
+corner_radius_top_left = 3
+corner_radius_bottom_left = 3
 
 [node name="CharacterSelection" type="Control" unique_id=2121782435]
 layout_mode = 3
@@ -75,6 +77,7 @@ theme_override_font_sizes/font_size = 30
 text = ">"
 
 [node name="BaseStatsContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=2134474118]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 10
 
@@ -152,6 +155,85 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_0ge4c")
 value = 50.0
 show_percentage = false
 
+[node name="PreferencesContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=791887662]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/PreferencesContainer" unique_id=1935895898]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "PREFERENCES."
+horizontal_alignment = 1
+
+[node name="PreferredLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/PreferencesContainer" unique_id=1178242269]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[u]PREFERRED COMPONENTS:[/u]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Preferreds" type="Label" parent="ScrollContainer/VBoxContainer/PreferencesContainer" unique_id=524344670]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "No content."
+horizontal_alignment = 1
+
+[node name="NonPreferredLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/PreferencesContainer" unique_id=498322287]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[u]NON-PREFERRED COMPONENTS:[/u]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="NonPreferreds" type="Label" parent="ScrollContainer/VBoxContainer/PreferencesContainer" unique_id=1468328995]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "No content"
+horizontal_alignment = 1
+
+[node name="DetailsContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1089639865]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="DetailsLabel" type="Label" parent="ScrollContainer/VBoxContainer/DetailsContainer" unique_id=791355642]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "DETAILS."
+horizontal_alignment = 1
+
+[node name="DetailsText" type="Label" parent="ScrollContainer/VBoxContainer/DetailsContainer" unique_id=1899391170]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Details here."
+horizontal_alignment = 1
+
+[node name="UltimateLabel" type="Label" parent="ScrollContainer/VBoxContainer/DetailsContainer" unique_id=1228631165]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "ULTIMATE:"
+horizontal_alignment = 1
+
+[node name="UltimateText" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/DetailsContainer" unique_id=91891851]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+bbcode_enabled = true
+text = "Ultimate here."
+fit_content = true
+horizontal_alignment = 1
+
 [node name="SelectionContainer" type="CenterContainer" parent="ScrollContainer/VBoxContainer" unique_id=1935171237]
 layout_mode = 2
 
@@ -159,17 +241,17 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer/SelectionContainer/HBoxContainer" unique_id=1077766228]
+[node name="BaseStatsButton" type="Button" parent="ScrollContainer/VBoxContainer/SelectionContainer/HBoxContainer" unique_id=1077766228]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "BASE STATS."
 
-[node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer/SelectionContainer/HBoxContainer" unique_id=531343982]
+[node name="PreferencesButton" type="Button" parent="ScrollContainer/VBoxContainer/SelectionContainer/HBoxContainer" unique_id=531343982]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "PREFERENCES."
 
-[node name="Button3" type="Button" parent="ScrollContainer/VBoxContainer/SelectionContainer/HBoxContainer" unique_id=961278575]
+[node name="DetailsButton" type="Button" parent="ScrollContainer/VBoxContainer/SelectionContainer/HBoxContainer" unique_id=961278575]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "DETAILS."
@@ -185,4 +267,7 @@ text = "START GAME"
 
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/MainContainer/Previous" to="." method="_on_previous_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/MainContainer/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/SelectionContainer/HBoxContainer/BaseStatsButton" to="." method="_on_base_stats_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/SelectionContainer/HBoxContainer/PreferencesButton" to="." method="_on_preferences_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/SelectionContainer/HBoxContainer/DetailsButton" to="." method="_on_details_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/BottomContainer/StartGame" to="." method="_on_start_game_pressed"]
