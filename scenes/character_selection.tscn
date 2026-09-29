@@ -223,7 +223,7 @@ horizontal_alignment = 1
 
 [node name="UltimateText" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/DetailsContainer" unique_id=91891851]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(400, 0)
 custom_maximum_size = Vector2(400, -1)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -242,16 +242,19 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="BaseStatsButton" type="Button" parent="ScrollContainer/VBoxContainer/SelectionContainer/HBoxContainer" unique_id=1077766228]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "BASE STATS."
 
 [node name="PreferencesButton" type="Button" parent="ScrollContainer/VBoxContainer/SelectionContainer/HBoxContainer" unique_id=531343982]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "PREFERENCES."
 
 [node name="DetailsButton" type="Button" parent="ScrollContainer/VBoxContainer/SelectionContainer/HBoxContainer" unique_id=961278575]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "DETAILS."
