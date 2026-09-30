@@ -2,6 +2,27 @@
 
 [ext_resource type="Script" uid="uid://dg5nrmxpr7uv0" path="res://scripts/character_selection.gd" id="1_q54je"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6shov"]
+bg_color = Color(0.3217281, 0.32172793, 0.32172796, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.014275214, 0.014275223, 0.014275194, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ge4c"]
+bg_color = Color(1, 1, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_bottom = 3
+border_color = Color(0.015686275, 0.015686275, 0.015686275, 1)
+corner_radius_top_left = 3
+corner_radius_bottom_left = 3
+
 [node name="CharacterSelection" type="Control" unique_id=2121782435]
 layout_mode = 3
 anchors_preset = 0
@@ -9,64 +30,247 @@ offset_right = 1152.0
 offset_bottom = 648.0
 script = ExtResource("1_q54je")
 
-[node name="Background" type="TextureRect" parent="." unique_id=392042386]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-mouse_filter = 2
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=2098832059]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="BottomContainer" type="CenterContainer" parent="." unique_id=717844862]
-layout_mode = 0
-offset_top = 488.0
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1176513586]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 50
+alignment = 1
 
-[node name="StartGame" type="Button" parent="BottomContainer" unique_id=723201553]
+[node name="CharacterName" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=1816747884]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "START GAME"
-
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=632344867]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 384.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1453958698]
-layout_mode = 2
-theme_override_constants/separation = 200
-
-[node name="CharacterName" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1816747884]
-unique_name_in_owner = true
-layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
 text = "CHARACTER NAME"
 
-[node name="CharacterSprite" type="TextureRect" parent="CenterContainer/VBoxContainer" unique_id=1843730439]
+[node name="MainContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=2138350294]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 300
+alignment = 1
+
+[node name="Previous" type="Button" parent="ScrollContainer/VBoxContainer/MainContainer" unique_id=278657697]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "<"
+
+[node name="CharacterSprite" type="TextureRect" parent="ScrollContainer/VBoxContainer/MainContainer" unique_id=1843730439]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Previous" type="Button" parent="." unique_id=278657697]
-layout_mode = 0
-offset_left = 45.0
-offset_top = 299.0
-offset_right = 70.0
-offset_bottom = 349.0
-theme_override_font_sizes/font_size = 30
-text = "<"
-
-[node name="Next" type="Button" parent="." unique_id=913004287]
-layout_mode = 0
-offset_left = 1079.0
-offset_top = 299.0
-offset_right = 1104.0
-offset_bottom = 349.0
+[node name="Next" type="Button" parent="ScrollContainer/VBoxContainer/MainContainer" unique_id=913004287]
+layout_mode = 2
+size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
 text = ">"
 
-[connection signal="pressed" from="BottomContainer/StartGame" to="." method="_on_start_game_pressed"]
-[connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]
-[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[node name="BaseStatsContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=2134474118]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/BaseStatsContainer" unique_id=1074024116]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "BASE STATS."
+horizontal_alignment = 1
+
+[node name="ConstitutionContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/BaseStatsContainer" unique_id=1547432837]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/BaseStatsContainer/ConstitutionContainer" unique_id=242401062]
+custom_minimum_size = Vector2(105, 0)
+layout_mode = 2
+text = "Constitution:"
+
+[node name="ConstitutionValue" type="ProgressBar" parent="ScrollContainer/VBoxContainer/BaseStatsContainer/ConstitutionContainer" unique_id=1018429158]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_6shov")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0ge4c")
+value = 50.0
+show_percentage = false
+
+[node name="SpeedContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/BaseStatsContainer" unique_id=59710077]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/BaseStatsContainer/SpeedContainer" unique_id=670176113]
+custom_minimum_size = Vector2(105, 0)
+layout_mode = 2
+text = "Speed:"
+
+[node name="SpeedValue" type="ProgressBar" parent="ScrollContainer/VBoxContainer/BaseStatsContainer/SpeedContainer" unique_id=1847115045]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_6shov")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0ge4c")
+value = 50.0
+show_percentage = false
+
+[node name="MPRechargeContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/BaseStatsContainer" unique_id=551354239]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/BaseStatsContainer/MPRechargeContainer" unique_id=24882069]
+custom_minimum_size = Vector2(105, 0)
+layout_mode = 2
+text = "MP Recharge:"
+
+[node name="MPRechargeValue" type="ProgressBar" parent="ScrollContainer/VBoxContainer/BaseStatsContainer/MPRechargeContainer" unique_id=1864158564]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_6shov")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0ge4c")
+value = 50.0
+show_percentage = false
+
+[node name="DamageContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/BaseStatsContainer" unique_id=381037586]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/BaseStatsContainer/DamageContainer" unique_id=1713580303]
+custom_minimum_size = Vector2(105, 0)
+layout_mode = 2
+text = "Damage:"
+
+[node name="DamageValue" type="ProgressBar" parent="ScrollContainer/VBoxContainer/BaseStatsContainer/DamageContainer" unique_id=1569844205]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_6shov")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0ge4c")
+value = 50.0
+show_percentage = false
+
+[node name="PreferencesContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=791887662]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/PreferencesContainer" unique_id=1935895898]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "PREFERENCES."
+horizontal_alignment = 1
+
+[node name="PreferredLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/PreferencesContainer" unique_id=1178242269]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[u]PREFERRED COMPONENTS:[/u]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Preferreds" type="Label" parent="ScrollContainer/VBoxContainer/PreferencesContainer" unique_id=524344670]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "No content."
+horizontal_alignment = 1
+
+[node name="NonPreferredLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/PreferencesContainer" unique_id=498322287]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[u]NON-PREFERRED COMPONENTS:[/u]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="NonPreferreds" type="Label" parent="ScrollContainer/VBoxContainer/PreferencesContainer" unique_id=1468328995]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "No content"
+horizontal_alignment = 1
+
+[node name="DetailsContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1089639865]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="DetailsLabel" type="Label" parent="ScrollContainer/VBoxContainer/DetailsContainer" unique_id=791355642]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "DETAILS."
+horizontal_alignment = 1
+
+[node name="DetailsText" type="Label" parent="ScrollContainer/VBoxContainer/DetailsContainer" unique_id=1899391170]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Details here."
+horizontal_alignment = 1
+
+[node name="UltimateLabel" type="Label" parent="ScrollContainer/VBoxContainer/DetailsContainer" unique_id=1228631165]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "ULTIMATE:"
+horizontal_alignment = 1
+
+[node name="UltimateText" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/DetailsContainer" unique_id=91891851]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+bbcode_enabled = true
+text = "Ultimate here."
+fit_content = true
+horizontal_alignment = 1
+
+[node name="SelectionContainer" type="CenterContainer" parent="ScrollContainer/VBoxContainer" unique_id=1935171237]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/SelectionContainer" unique_id=1004614656]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BaseStatsButton" type="Button" parent="ScrollContainer/VBoxContainer/SelectionContainer/HBoxContainer" unique_id=1077766228]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "BASE STATS."
+
+[node name="PreferencesButton" type="Button" parent="ScrollContainer/VBoxContainer/SelectionContainer/HBoxContainer" unique_id=531343982]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "PREFERENCES."
+
+[node name="DetailsButton" type="Button" parent="ScrollContainer/VBoxContainer/SelectionContainer/HBoxContainer" unique_id=961278575]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "DETAILS."
+
+[node name="BottomContainer" type="CenterContainer" parent="ScrollContainer/VBoxContainer" unique_id=717844862]
+layout_mode = 2
+
+[node name="StartGame" type="Button" parent="ScrollContainer/VBoxContainer/BottomContainer" unique_id=723201553]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "START GAME"
+
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/MainContainer/Previous" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/MainContainer/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/SelectionContainer/HBoxContainer/BaseStatsButton" to="." method="_on_base_stats_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/SelectionContainer/HBoxContainer/PreferencesButton" to="." method="_on_preferences_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/SelectionContainer/HBoxContainer/DetailsButton" to="." method="_on_details_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/BottomContainer/StartGame" to="." method="_on_start_game_pressed"]
